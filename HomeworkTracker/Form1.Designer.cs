@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HomeworkPanel = new System.Windows.Forms.Panel();
             this.Demo = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -51,13 +52,12 @@
             this.SortRequestLabel = new System.Windows.Forms.Label();
             this.EditPanel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.StudyPanel = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.CompletedTitlePanel = new System.Windows.Forms.Panel();
             this.CompletedLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.StudyPanel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.HomeworkViewTitlePanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.HomeworkViewLabel = new System.Windows.Forms.Label();
             this.AddCoursePanel = new System.Windows.Forms.Panel();
             this.AddCourseButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -82,25 +82,30 @@
             this.DeleteCourseDropdown = new System.Windows.Forms.ComboBox();
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
+            this.BackgroundPanel = new System.Windows.Forms.Panel();
             this.HomeworkPanel.SuspendLayout();
             this.SortPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
-            this.StudyPanel.SuspendLayout();
             this.CompletedTitlePanel.SuspendLayout();
+            this.StudyPanel.SuspendLayout();
             this.HomeworkViewTitlePanel.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             this.AddAssignmentPanel.SuspendLayout();
             this.DeletePanel.SuspendLayout();
+            this.BackgroundPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // HomeworkPanel
             // 
-            this.HomeworkPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.HomeworkPanel.BackColor = System.Drawing.Color.Transparent;
+            this.HomeworkPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkPanel.BackgroundImage")));
+            this.HomeworkPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.HomeworkPanel.Controls.Add(this.Demo);
             this.HomeworkPanel.Controls.Add(this.panel5);
-            this.HomeworkPanel.Location = new System.Drawing.Point(338, 42);
+            this.HomeworkPanel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.HomeworkPanel.Location = new System.Drawing.Point(315, 76);
             this.HomeworkPanel.Name = "HomeworkPanel";
-            this.HomeworkPanel.Size = new System.Drawing.Size(909, 297);
+            this.HomeworkPanel.Size = new System.Drawing.Size(885, 304);
             this.HomeworkPanel.TabIndex = 0;
             // 
             // Demo
@@ -123,37 +128,43 @@
             // 
             // CompletedPanel
             // 
-            this.CompletedPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.CompletedPanel.Location = new System.Drawing.Point(338, 379);
+            this.CompletedPanel.BackColor = System.Drawing.Color.Transparent;
+            this.CompletedPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompletedPanel.BackgroundImage")));
+            this.CompletedPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CompletedPanel.Font = new System.Drawing.Font("Mistral", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompletedPanel.Location = new System.Drawing.Point(315, 414);
             this.CompletedPanel.Name = "CompletedPanel";
-            this.CompletedPanel.Size = new System.Drawing.Size(909, 272);
+            this.CompletedPanel.Size = new System.Drawing.Size(885, 258);
             this.CompletedPanel.TabIndex = 1;
             // 
             // CourseDropDown
             // 
             this.CourseDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CourseDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.CourseDropDown.FormattingEnabled = true;
             this.CourseDropDown.Location = new System.Drawing.Point(108, 45);
             this.CourseDropDown.Name = "CourseDropDown";
             this.CourseDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CourseDropDown.Size = new System.Drawing.Size(149, 24);
+            this.CourseDropDown.Size = new System.Drawing.Size(149, 28);
             this.CourseDropDown.TabIndex = 2;
             // 
             // SortDropDown
             // 
             this.SortDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.SortDropDown.FormattingEnabled = true;
             this.SortDropDown.Location = new System.Drawing.Point(108, 102);
             this.SortDropDown.Name = "SortDropDown";
             this.SortDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SortDropDown.Size = new System.Drawing.Size(149, 24);
+            this.SortDropDown.Size = new System.Drawing.Size(149, 28);
             this.SortDropDown.TabIndex = 3;
             // 
             // SortButton
             // 
-            this.SortButton.Location = new System.Drawing.Point(43, 153);
+            this.SortButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.SortButton.Location = new System.Drawing.Point(43, 143);
             this.SortButton.Name = "SortButton";
-            this.SortButton.Size = new System.Drawing.Size(187, 23);
+            this.SortButton.Size = new System.Drawing.Size(187, 40);
             this.SortButton.TabIndex = 4;
             this.SortButton.Text = "Generate";
             this.SortButton.UseVisualStyleBackColor = true;
@@ -162,7 +173,7 @@
             // CourseLabel
             // 
             this.CourseLabel.AutoSize = true;
-            this.CourseLabel.BackColor = System.Drawing.Color.DarkBlue;
+            this.CourseLabel.BackColor = System.Drawing.Color.Transparent;
             this.CourseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CourseLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.CourseLabel.Location = new System.Drawing.Point(3, 45);
@@ -174,7 +185,7 @@
             // SortTypeLabel
             // 
             this.SortTypeLabel.AutoSize = true;
-            this.SortTypeLabel.BackColor = System.Drawing.Color.DarkBlue;
+            this.SortTypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.SortTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SortTypeLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.SortTypeLabel.Location = new System.Drawing.Point(3, 102);
@@ -185,7 +196,8 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(71, 26);
+            this.AddButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.AddButton.Location = new System.Drawing.Point(63, 48);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(36, 36);
             this.AddButton.TabIndex = 7;
@@ -195,7 +207,8 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(202, 26);
+            this.DeleteButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.DeleteButton.Location = new System.Drawing.Point(212, 48);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(36, 36);
             this.DeleteButton.TabIndex = 8;
@@ -208,7 +221,7 @@
             this.DeleteLabel.AutoSize = true;
             this.DeleteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DeleteLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.DeleteLabel.Location = new System.Drawing.Point(114, 29);
+            this.DeleteLabel.Location = new System.Drawing.Point(130, 51);
             this.DeleteLabel.Name = "DeleteLabel";
             this.DeleteLabel.Size = new System.Drawing.Size(74, 25);
             this.DeleteLabel.TabIndex = 9;
@@ -219,7 +232,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(6, 28);
+            this.label4.Location = new System.Drawing.Point(3, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 25);
             this.label4.TabIndex = 10;
@@ -228,65 +241,72 @@
             // ObjectTypeDropdown
             // 
             this.ObjectTypeDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ObjectTypeDropdown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.ObjectTypeDropdown.FormattingEnabled = true;
             this.ObjectTypeDropdown.Items.AddRange(new object[] {
             "Course",
             "Assignment"});
-            this.ObjectTypeDropdown.SelectedIndex = 0;
-            this.ObjectTypeDropdown.Location = new System.Drawing.Point(71, 86);
+            this.ObjectTypeDropdown.Location = new System.Drawing.Point(63, 113);
             this.ObjectTypeDropdown.Name = "ObjectTypeDropdown";
             this.ObjectTypeDropdown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ObjectTypeDropdown.Size = new System.Drawing.Size(122, 24);
+            this.ObjectTypeDropdown.Size = new System.Drawing.Size(141, 28);
             this.ObjectTypeDropdown.TabIndex = 11;
             // 
             // StudyTrendsButton
             // 
-            this.StudyTrendsButton.Location = new System.Drawing.Point(43, 68);
+            this.StudyTrendsButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.StudyTrendsButton.Location = new System.Drawing.Point(43, 89);
             this.StudyTrendsButton.Name = "StudyTrendsButton";
-            this.StudyTrendsButton.Size = new System.Drawing.Size(183, 23);
+            this.StudyTrendsButton.Size = new System.Drawing.Size(183, 34);
             this.StudyTrendsButton.TabIndex = 13;
             this.StudyTrendsButton.Text = "View Study Trends";
             this.StudyTrendsButton.UseVisualStyleBackColor = true;
             // 
             // StartStudyButton
             // 
-            this.StartStudyButton.Location = new System.Drawing.Point(43, 30);
+            this.StartStudyButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.StartStudyButton.Location = new System.Drawing.Point(43, 49);
             this.StartStudyButton.Name = "StartStudyButton";
-            this.StartStudyButton.Size = new System.Drawing.Size(183, 23);
+            this.StartStudyButton.Size = new System.Drawing.Size(183, 34);
             this.StartStudyButton.TabIndex = 14;
             this.StartStudyButton.Text = "Start Study Session";
             this.StartStudyButton.UseVisualStyleBackColor = true;
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(35, 503);
+            this.UpdateButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.UpdateButton.Location = new System.Drawing.Point(27, 555);
             this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(230, 23);
+            this.UpdateButton.Size = new System.Drawing.Size(267, 35);
             this.UpdateButton.TabIndex = 15;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
             // 
             // NotificationButton
             // 
-            this.NotificationButton.Location = new System.Drawing.Point(35, 583);
+            this.NotificationButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.NotificationButton.Location = new System.Drawing.Point(27, 637);
             this.NotificationButton.Name = "NotificationButton";
-            this.NotificationButton.Size = new System.Drawing.Size(230, 23);
+            this.NotificationButton.Size = new System.Drawing.Size(267, 35);
             this.NotificationButton.TabIndex = 16;
             this.NotificationButton.Text = "Notification";
             this.NotificationButton.UseVisualStyleBackColor = true;
             // 
             // CustomizeButton
             // 
-            this.CustomizeButton.Location = new System.Drawing.Point(35, 543);
+            this.CustomizeButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.CustomizeButton.Location = new System.Drawing.Point(27, 596);
             this.CustomizeButton.Name = "CustomizeButton";
-            this.CustomizeButton.Size = new System.Drawing.Size(230, 23);
+            this.CustomizeButton.Size = new System.Drawing.Size(267, 35);
             this.CustomizeButton.TabIndex = 17;
             this.CustomizeButton.Text = "Customize";
             this.CustomizeButton.UseVisualStyleBackColor = true;
             // 
             // SortPanel
             // 
-            this.SortPanel.BackColor = System.Drawing.Color.DarkBlue;
+            this.SortPanel.BackColor = System.Drawing.Color.Transparent;
+            this.SortPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SortPanel.BackgroundImage")));
+            this.SortPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SortPanel.Controls.Add(this.SortRequestLabel);
             this.SortPanel.Controls.Add(this.CourseDropDown);
             this.SortPanel.Controls.Add(this.SortDropDown);
@@ -301,111 +321,112 @@
             // SortRequestLabel
             // 
             this.SortRequestLabel.AutoSize = true;
+            this.SortRequestLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.SortRequestLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.SortRequestLabel.Location = new System.Drawing.Point(82, 11);
+            this.SortRequestLabel.Location = new System.Drawing.Point(32, 3);
             this.SortRequestLabel.Name = "SortRequestLabel";
-            this.SortRequestLabel.Size = new System.Drawing.Size(91, 17);
+            this.SortRequestLabel.Size = new System.Drawing.Size(194, 32);
             this.SortRequestLabel.TabIndex = 19;
             this.SortRequestLabel.Text = "Sort Request";
             // 
             // EditPanel
             // 
-            this.EditPanel.BackColor = System.Drawing.Color.DarkBlue;
+            this.EditPanel.BackColor = System.Drawing.Color.Transparent;
+            this.EditPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditPanel.BackgroundImage")));
+            this.EditPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditPanel.Controls.Add(this.label9);
             this.EditPanel.Controls.Add(this.DeleteButton);
             this.EditPanel.Controls.Add(this.AddButton);
             this.EditPanel.Controls.Add(this.label4);
             this.EditPanel.Controls.Add(this.DeleteLabel);
             this.EditPanel.Controls.Add(this.ObjectTypeDropdown);
-            this.EditPanel.Location = new System.Drawing.Point(27, 238);
+            this.EditPanel.Location = new System.Drawing.Point(27, 233);
             this.EditPanel.Name = "EditPanel";
-            this.EditPanel.Size = new System.Drawing.Size(267, 132);
+            this.EditPanel.Size = new System.Drawing.Size(267, 175);
             this.EditPanel.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.label9.ForeColor = System.Drawing.SystemColors.Window;
-            this.label9.Location = new System.Drawing.Point(8, 4);
+            this.label9.Location = new System.Drawing.Point(72, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(244, 17);
+            this.label9.Size = new System.Drawing.Size(124, 32);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Course and Assignment Management";
-            // 
-            // StudyPanel
-            // 
-            this.StudyPanel.BackColor = System.Drawing.Color.DarkBlue;
-            this.StudyPanel.Controls.Add(this.label10);
-            this.StudyPanel.Controls.Add(this.StartStudyButton);
-            this.StudyPanel.Controls.Add(this.StudyTrendsButton);
-            this.StudyPanel.Location = new System.Drawing.Point(27, 379);
-            this.StudyPanel.Name = "StudyPanel";
-            this.StudyPanel.Size = new System.Drawing.Size(267, 104);
-            this.StudyPanel.TabIndex = 20;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(82, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Study Tracker";
+            this.label9.Text = "Manage";
             // 
             // CompletedTitlePanel
             // 
-            this.CompletedTitlePanel.BackColor = System.Drawing.Color.DarkBlue;
+            this.CompletedTitlePanel.BackColor = System.Drawing.Color.Transparent;
+            this.CompletedTitlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompletedTitlePanel.BackgroundImage")));
+            this.CompletedTitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CompletedTitlePanel.Controls.Add(this.CompletedLabel);
-            this.CompletedTitlePanel.Location = new System.Drawing.Point(338, 338);
+            this.CompletedTitlePanel.Location = new System.Drawing.Point(315, 376);
             this.CompletedTitlePanel.Name = "CompletedTitlePanel";
-            this.CompletedTitlePanel.Size = new System.Drawing.Size(909, 45);
+            this.CompletedTitlePanel.Size = new System.Drawing.Size(885, 45);
             this.CompletedTitlePanel.TabIndex = 0;
             // 
             // CompletedLabel
             // 
             this.CompletedLabel.AutoSize = true;
-            this.CompletedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CompletedLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.CompletedLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.CompletedLabel.Location = new System.Drawing.Point(394, 10);
+            this.CompletedLabel.Location = new System.Drawing.Point(361, 7);
             this.CompletedLabel.Name = "CompletedLabel";
-            this.CompletedLabel.Size = new System.Drawing.Size(107, 25);
+            this.CompletedLabel.Size = new System.Drawing.Size(166, 32);
             this.CompletedLabel.TabIndex = 0;
             this.CompletedLabel.Text = "Completed";
             // 
-            // label7
+            // StudyPanel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(716, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 25);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Homework View";
+            this.StudyPanel.BackColor = System.Drawing.Color.Transparent;
+            this.StudyPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StudyPanel.BackgroundImage")));
+            this.StudyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StudyPanel.Controls.Add(this.StartStudyButton);
+            this.StudyPanel.Controls.Add(this.label10);
+            this.StudyPanel.Controls.Add(this.StudyTrendsButton);
+            this.StudyPanel.Location = new System.Drawing.Point(27, 414);
+            this.StudyPanel.Name = "StudyPanel";
+            this.StudyPanel.Size = new System.Drawing.Size(267, 135);
+            this.StudyPanel.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.label10.ForeColor = System.Drawing.SystemColors.Window;
+            this.label10.Location = new System.Drawing.Point(28, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(210, 32);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Study Tracker";
             // 
             // HomeworkViewTitlePanel
             // 
-            this.HomeworkViewTitlePanel.BackColor = System.Drawing.Color.DarkBlue;
-            this.HomeworkViewTitlePanel.Controls.Add(this.label8);
-            this.HomeworkViewTitlePanel.Location = new System.Drawing.Point(338, -1);
+            this.HomeworkViewTitlePanel.BackColor = System.Drawing.Color.Transparent;
+            this.HomeworkViewTitlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkViewTitlePanel.BackgroundImage")));
+            this.HomeworkViewTitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.HomeworkViewTitlePanel.Controls.Add(this.HomeworkViewLabel);
+            this.HomeworkViewTitlePanel.Location = new System.Drawing.Point(315, 31);
             this.HomeworkViewTitlePanel.Name = "HomeworkViewTitlePanel";
-            this.HomeworkViewTitlePanel.Size = new System.Drawing.Size(909, 48);
+            this.HomeworkViewTitlePanel.Size = new System.Drawing.Size(885, 48);
             this.HomeworkViewTitlePanel.TabIndex = 1;
             // 
-            // label8
+            // HomeworkViewLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.ForeColor = System.Drawing.SystemColors.Window;
-            this.label8.Location = new System.Drawing.Point(378, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Homework View";
+            this.HomeworkViewLabel.AutoSize = true;
+            this.HomeworkViewLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.HomeworkViewLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.HomeworkViewLabel.Location = new System.Drawing.Point(319, 3);
+            this.HomeworkViewLabel.Name = "HomeworkViewLabel";
+            this.HomeworkViewLabel.Size = new System.Drawing.Size(237, 32);
+            this.HomeworkViewLabel.TabIndex = 0;
+            this.HomeworkViewLabel.Text = "Homework View";
             // 
             // AddCoursePanel
             // 
+            this.AddCoursePanel.BackColor = System.Drawing.Color.Transparent;
             this.AddCoursePanel.Controls.Add(this.AddCourseButton);
             this.AddCoursePanel.Controls.Add(this.label5);
             this.AddCoursePanel.Controls.Add(this.label2);
@@ -414,9 +435,9 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AddCoursePanel.Location = new System.Drawing.Point(597, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(649, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
-            this.AddCoursePanel.Size = new System.Drawing.Size(648, 650);
+            this.AddCoursePanel.Size = new System.Drawing.Size(561, 685);
             this.AddCoursePanel.TabIndex = 21;
             this.AddCoursePanel.Visible = false;
             // 
@@ -487,6 +508,7 @@
             // 
             // AddAssignmentPanel
             // 
+            this.AddAssignmentPanel.BackColor = System.Drawing.Color.Transparent;
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentConfirmButton);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDueDateCalendar);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDescriptionField);
@@ -499,7 +521,7 @@
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
-            this.AddAssignmentPanel.Size = new System.Drawing.Size(675, 650);
+            this.AddAssignmentPanel.Size = new System.Drawing.Size(652, 685);
             this.AddAssignmentPanel.TabIndex = 22;
             this.AddAssignmentPanel.Visible = false;
             // 
@@ -588,12 +610,14 @@
             // 
             // DeletePanel
             // 
+            this.DeletePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeletePanel.BackgroundImage")));
+            this.DeletePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeletePanel.Controls.Add(this.DeleteConfirmButton);
             this.DeletePanel.Controls.Add(this.DeleteAssignmentDropdown);
             this.DeletePanel.Controls.Add(this.DeleteCourseDropdown);
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
-            this.DeletePanel.Location = new System.Drawing.Point(375, 133);
+            this.DeletePanel.Location = new System.Drawing.Point(300, 152);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(601, 379);
             this.DeletePanel.TabIndex = 11;
@@ -647,37 +671,49 @@
             this.DeleteCourseLabel.TabIndex = 0;
             this.DeleteCourseLabel.Text = "Select Course";
             // 
+            // BackgroundPanel
+            // 
+            this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackgroundPanel.BackgroundImage")));
+            this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
+            this.BackgroundPanel.Controls.Add(this.NotificationButton);
+            this.BackgroundPanel.Controls.Add(this.CustomizeButton);
+            this.BackgroundPanel.Controls.Add(this.UpdateButton);
+            this.BackgroundPanel.Controls.Add(this.HomeworkViewTitlePanel);
+            this.BackgroundPanel.Controls.Add(this.StudyPanel);
+            this.BackgroundPanel.Controls.Add(this.SortPanel);
+            this.BackgroundPanel.Controls.Add(this.CompletedTitlePanel);
+            this.BackgroundPanel.Controls.Add(this.EditPanel);
+            this.BackgroundPanel.Controls.Add(this.CompletedPanel);
+            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
+            this.BackgroundPanel.Controls.Add(this.DeletePanel);
+            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
+            this.BackgroundPanel.Location = new System.Drawing.Point(0, 0);
+            this.BackgroundPanel.Name = "BackgroundPanel";
+            this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
+            this.BackgroundPanel.TabIndex = 23;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(1245, 650);
-            this.Controls.Add(this.DeletePanel);
-            this.Controls.Add(this.CompletedTitlePanel);
-            this.Controls.Add(this.HomeworkViewTitlePanel);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.CustomizeButton);
-            this.Controls.Add(this.NotificationButton);
-            this.Controls.Add(this.UpdateButton);
-            this.Controls.Add(this.SortPanel);
-            this.Controls.Add(this.EditPanel);
-            this.Controls.Add(this.StudyPanel);
-            this.Controls.Add(this.CompletedPanel);
-            this.Controls.Add(this.HomeworkPanel);
-            this.Controls.Add(this.AddCoursePanel);
-            this.Controls.Add(this.AddAssignmentPanel);
+            this.ClientSize = new System.Drawing.Size(1202, 678);
+            this.Controls.Add(this.BackgroundPanel);
+            this.MaximumSize = new System.Drawing.Size(1220, 725);
+            this.MinimumSize = new System.Drawing.Size(912, 537);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "No-Hiss Homework";
             this.HomeworkPanel.ResumeLayout(false);
             this.SortPanel.ResumeLayout(false);
             this.SortPanel.PerformLayout();
             this.EditPanel.ResumeLayout(false);
             this.EditPanel.PerformLayout();
-            this.StudyPanel.ResumeLayout(false);
-            this.StudyPanel.PerformLayout();
             this.CompletedTitlePanel.ResumeLayout(false);
             this.CompletedTitlePanel.PerformLayout();
+            this.StudyPanel.ResumeLayout(false);
+            this.StudyPanel.PerformLayout();
             this.HomeworkViewTitlePanel.ResumeLayout(false);
             this.HomeworkViewTitlePanel.PerformLayout();
             this.AddCoursePanel.ResumeLayout(false);
@@ -686,8 +722,8 @@
             this.AddAssignmentPanel.PerformLayout();
             this.DeletePanel.ResumeLayout(false);
             this.DeletePanel.PerformLayout();
+            this.BackgroundPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -717,11 +753,10 @@
         private System.Windows.Forms.Panel StudyPanel;
         private System.Windows.Forms.Panel CompletedTitlePanel;
         private System.Windows.Forms.Label CompletedLabel;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel HomeworkViewTitlePanel;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label HomeworkViewLabel;
         private System.Windows.Forms.Button Demo;
         private System.Windows.Forms.Panel AddCoursePanel;
         private System.Windows.Forms.Label label5;
@@ -747,6 +782,7 @@
         private System.Windows.Forms.ComboBox DeleteCourseDropdown;
         private System.Windows.Forms.Label DeleteAssignmentLabel;
         private System.Windows.Forms.Label DeleteCourseLabel;
+        private System.Windows.Forms.Panel BackgroundPanel;
     }
 }
 
