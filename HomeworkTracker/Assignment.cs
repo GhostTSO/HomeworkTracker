@@ -107,12 +107,13 @@ namespace HomeworkTracker
         public void saveAssignment()
         {
             string loadInfoDestination = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUps.txt";
-            string saveInfo = String.Format("{0},{1},{2},{3},{4},{5},{6}",
+
+            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
                 this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
 
             using (StreamWriter sw = File.AppendText(loadInfoDestination))
             {
-                sw.WriteLine(saveInfo);
+                sw.WriteLine(this.saveString);
             }
         }
 

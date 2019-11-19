@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace HomeworkTracker
         private string instructorName;
         private TimeSpan studyTime;
         private List<Assignment> assignments;
+        private string saveString;
 
         //0-param constructor
         public Course()
@@ -31,6 +33,8 @@ namespace HomeworkTracker
             this.instructorName = InstructorName;
             this.studyTime = TimeSpan.Zero;
             this.assignments = new List<Assignment>();
+            this.saveString = String.Format("{0},{1},{2},{3},{4}", 
+                this.courseName, this.courseID, this.colorID.ToString(), this.instructorName, this.studyTime);
         }
 
         //getters
@@ -96,6 +100,52 @@ namespace HomeworkTracker
         public void removeAssingment(Assignment removedAssignment)
         {
             this.assignments.Remove(removedAssignment);
+        }
+
+        //DB Functions ******************************************************************************************
+
+        //??? -- This might better be placed internal to another class that focuses on saving and loading info in.
+        public void saveAssignment()
+        {
+            string loadInfoDestination = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUps.txt";
+            this.saveString = String.Format("{0},{1},{2},{3},{4}",
+                this.courseName, this.courseID, this.colorID.ToString(), this.instructorName, this.studyTime);
+
+            using (StreamWriter sw = File.AppendText(loadInfoDestination))
+            {
+                sw.WriteLine(saveString);
+            }
+        }
+
+        public void deleteAssignment()
+        {
+            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
+            string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
+
+            //For this to be correct with the database, we consistently need to update the DB as we make changes.
+            //Might want to to make the update function a private function, and place it into each setter.
+            this.saveString = String.Format("{0},{1},{2},{3},{4}",
+                this.courseName, this.courseID, this.colorID.ToString(), this.instructorName, this.studyTime);
+
+            using (var sr = new StreamReader(assignmentsLocation))
+            using (var sw = new StreamWriter(tempFile))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != this.saveString)
+                        sw.WriteLine(line);
+                }
+            }
+
+            File.Delete("file.txt");
+            File.Move(tempFile, "file.txt");
+        }
+
+        //Need an Update Function when contents of assignment changes.
+        public void updateAssignment()
+        {
+            //Still Needed
         }
     }
 }
