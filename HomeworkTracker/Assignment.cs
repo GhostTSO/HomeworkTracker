@@ -117,6 +117,7 @@ namespace HomeworkTracker
             }
         }
 
+        //NEEDS TO BE TESTED
         public void deleteAssignment()
         {
             string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
@@ -142,10 +143,39 @@ namespace HomeworkTracker
             File.Move(tempFile, "file.txt");
         }
 
-        //Need an Update Function when contents of assignment changes.
-        public void updateAssignment()
+        //NEEDS TO BE TESTED
+        private void updateAssignment()
         {
             //Still Needed
+            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
+            string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
+
+            //For this to be correct with the database, we consistently need to update the DB as we make changes.
+            //Might want to to make the update function a private function, and place it into each setter.
+
+            using (var sr = new StreamReader(assignmentsLocation))
+            using (var sw = new StreamWriter(tempFile))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != this.saveString)
+                    {
+                        //If line isn't the one that needs to be updated, then no revision needed
+                        sw.WriteLine(line);
+                    } 
+                    else
+                    {
+                        //If line is the one that needs to be updated, then create revision
+                        this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
+                            this.assignmentName, this.course, this.description, this.pointValue, 
+                            this.priority, this.dueDate, this.timeLeft);
+                        sw.WriteLine(this.saveString);
+                    }
+                }
+            }
+            File.Delete("file.txt");
+            File.Move(tempFile, "file.txt");
         }
     }
 }
