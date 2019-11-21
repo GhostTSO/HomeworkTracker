@@ -29,28 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.HomeworkPanel = new System.Windows.Forms.Panel();
-            this.Demo = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
             this.SortButton = new System.Windows.Forms.Button();
             this.CourseLabel = new System.Windows.Forms.Label();
             this.SortTypeLabel = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.DeleteLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ObjectTypeDropdown = new System.Windows.Forms.ComboBox();
             this.StudyTrendsButton = new System.Windows.Forms.Button();
             this.StartStudyButton = new System.Windows.Forms.Button();
-            this.UpdateButton = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.NotificationButton = new System.Windows.Forms.Button();
             this.CustomizeButton = new System.Windows.Forms.Button();
             this.SortPanel = new System.Windows.Forms.Panel();
             this.SortRequestLabel = new System.Windows.Forms.Label();
             this.EditPanel = new System.Windows.Forms.Panel();
+            this.ManageDeleteAssignmentButton = new System.Windows.Forms.Button();
+            this.ManageAddAssignmentButton = new System.Windows.Forms.Button();
+            this.ManageDeleteCourseButton = new System.Windows.Forms.Button();
+            this.ManageAddCourseButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.CompletedTitlePanel = new System.Windows.Forms.Panel();
             this.CompletedLabel = new System.Windows.Forms.Label();
@@ -59,7 +55,8 @@
             this.HomeworkViewTitlePanel = new System.Windows.Forms.Panel();
             this.HomeworkViewLabel = new System.Windows.Forms.Label();
             this.AddCoursePanel = new System.Windows.Forms.Panel();
-            this.AddCourseButton = new System.Windows.Forms.Button();
+            this.AddCourseCancelButton = new System.Windows.Forms.Button();
+            this.AddCourseConfirmButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,23 +64,25 @@
             this.AddCourseCourseShortTextbox = new System.Windows.Forms.TextBox();
             this.AddCourseCourseTexbox = new System.Windows.Forms.TextBox();
             this.AddAssignmentPanel = new System.Windows.Forms.Panel();
+            this.AddAssignmentCancelButton = new System.Windows.Forms.Button();
+            this.AddAssignmentCourseNameLabel = new System.Windows.Forms.Label();
+            this.AddAssignmentCourseDropDown = new System.Windows.Forms.ComboBox();
             this.AddAssignmentConfirmButton = new System.Windows.Forms.Button();
             this.AddAssignmentDueDateCalendar = new System.Windows.Forms.MonthCalendar();
-            this.AddAssignmentDescriptionField = new System.Windows.Forms.RichTextBox();
             this.AddAssignmentPointTextbox = new System.Windows.Forms.TextBox();
             this.AddAssignmentNameTextbox = new System.Windows.Forms.TextBox();
             this.AddAssignmentDateLabel = new System.Windows.Forms.Label();
             this.AddAssignmentDPointLabel = new System.Windows.Forms.Label();
             this.AddAssignmentAssignmentNameLabel = new System.Windows.Forms.Label();
-            this.AddAssignmentDescriptionLabel = new System.Windows.Forms.Label();
             this.DeletePanel = new System.Windows.Forms.Panel();
-            this.DeleteConfirmButton = new System.Windows.Forms.Button();
-            this.DeleteAssignmentDropdown = new System.Windows.Forms.ComboBox();
-            this.DeleteCourseDropdown = new System.Windows.Forms.ComboBox();
+            this.DeleteCancelButton = new System.Windows.Forms.Button();
+            this.DeleteAssignmentDropDown = new System.Windows.Forms.ComboBox();
+            this.DeleteCourseDropDown = new System.Windows.Forms.ComboBox();
+            this.DeleteItemButton = new System.Windows.Forms.Button();
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
-            this.HomeworkPanel.SuspendLayout();
+            this.HomeworkPanel = new System.Windows.Forms.Panel();
             this.SortPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.CompletedTitlePanel.SuspendLayout();
@@ -95,39 +94,9 @@
             this.BackgroundPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // HomeworkPanel
-            // 
-            this.HomeworkPanel.BackColor = System.Drawing.Color.Transparent;
-            this.HomeworkPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkPanel.BackgroundImage")));
-            this.HomeworkPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.HomeworkPanel.Controls.Add(this.Demo);
-            this.HomeworkPanel.Controls.Add(this.panel5);
-            this.HomeworkPanel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.HomeworkPanel.Location = new System.Drawing.Point(315, 76);
-            this.HomeworkPanel.Name = "HomeworkPanel";
-            this.HomeworkPanel.Size = new System.Drawing.Size(885, 304);
-            this.HomeworkPanel.TabIndex = 0;
-            // 
-            // Demo
-            // 
-            this.Demo.Location = new System.Drawing.Point(304, 94);
-            this.Demo.Name = "Demo";
-            this.Demo.Size = new System.Drawing.Size(278, 123);
-            this.Demo.TabIndex = 21;
-            this.Demo.Text = "Demo";
-            this.Demo.UseVisualStyleBackColor = true;
-            this.Demo.Click += new System.EventHandler(this.Demo_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel5.Location = new System.Drawing.Point(0, -41);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(909, 42);
-            this.panel5.TabIndex = 0;
-            // 
             // CompletedPanel
             // 
+            this.CompletedPanel.AutoScroll = true;
             this.CompletedPanel.BackColor = System.Drawing.Color.Transparent;
             this.CompletedPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompletedPanel.BackgroundImage")));
             this.CompletedPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -168,7 +137,6 @@
             this.SortButton.TabIndex = 4;
             this.SortButton.Text = "Generate";
             this.SortButton.UseVisualStyleBackColor = true;
-            this.SortButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // CourseLabel
             // 
@@ -194,64 +162,6 @@
             this.SortTypeLabel.TabIndex = 6;
             this.SortTypeLabel.Text = "Sort Type:";
             // 
-            // AddButton
-            // 
-            this.AddButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.AddButton.Location = new System.Drawing.Point(63, 48);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(36, 36);
-            this.AddButton.TabIndex = 7;
-            this.AddButton.Text = "+";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.DeleteButton.Location = new System.Drawing.Point(212, 48);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(36, 36);
-            this.DeleteButton.TabIndex = 8;
-            this.DeleteButton.Text = "-";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // DeleteLabel
-            // 
-            this.DeleteLabel.AutoSize = true;
-            this.DeleteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.DeleteLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.DeleteLabel.Location = new System.Drawing.Point(130, 51);
-            this.DeleteLabel.Name = "DeleteLabel";
-            this.DeleteLabel.Size = new System.Drawing.Size(74, 25);
-            this.DeleteLabel.TabIndex = 9;
-            this.DeleteLabel.Text = "Delete:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.ForeColor = System.Drawing.SystemColors.Window;
-            this.label4.Location = new System.Drawing.Point(3, 51);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 25);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Add:";
-            // 
-            // ObjectTypeDropdown
-            // 
-            this.ObjectTypeDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ObjectTypeDropdown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.ObjectTypeDropdown.FormattingEnabled = true;
-            this.ObjectTypeDropdown.Items.AddRange(new object[] {
-            "Course",
-            "Assignment"});
-            this.ObjectTypeDropdown.Location = new System.Drawing.Point(63, 113);
-            this.ObjectTypeDropdown.Name = "ObjectTypeDropdown";
-            this.ObjectTypeDropdown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ObjectTypeDropdown.Size = new System.Drawing.Size(141, 28);
-            this.ObjectTypeDropdown.TabIndex = 11;
-            // 
             // StudyTrendsButton
             // 
             this.StudyTrendsButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
@@ -272,15 +182,16 @@
             this.StartStudyButton.Text = "Start Study Session";
             this.StartStudyButton.UseVisualStyleBackColor = true;
             // 
-            // UpdateButton
+            // RefreshButton
             // 
-            this.UpdateButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            this.UpdateButton.Location = new System.Drawing.Point(27, 555);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(267, 35);
-            this.UpdateButton.TabIndex = 15;
-            this.UpdateButton.Text = "Update";
-            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.RefreshButton.Location = new System.Drawing.Point(27, 555);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(267, 35);
+            this.RefreshButton.TabIndex = 15;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // NotificationButton
             // 
@@ -334,16 +245,59 @@
             this.EditPanel.BackColor = System.Drawing.Color.Transparent;
             this.EditPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditPanel.BackgroundImage")));
             this.EditPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EditPanel.Controls.Add(this.ManageDeleteAssignmentButton);
+            this.EditPanel.Controls.Add(this.ManageAddAssignmentButton);
+            this.EditPanel.Controls.Add(this.ManageDeleteCourseButton);
+            this.EditPanel.Controls.Add(this.ManageAddCourseButton);
             this.EditPanel.Controls.Add(this.label9);
-            this.EditPanel.Controls.Add(this.DeleteButton);
-            this.EditPanel.Controls.Add(this.AddButton);
-            this.EditPanel.Controls.Add(this.label4);
-            this.EditPanel.Controls.Add(this.DeleteLabel);
-            this.EditPanel.Controls.Add(this.ObjectTypeDropdown);
             this.EditPanel.Location = new System.Drawing.Point(27, 233);
             this.EditPanel.Name = "EditPanel";
             this.EditPanel.Size = new System.Drawing.Size(267, 175);
             this.EditPanel.TabIndex = 19;
+            // 
+            // ManageDeleteAssignmentButton
+            // 
+            this.ManageDeleteAssignmentButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.ManageDeleteAssignmentButton.Location = new System.Drawing.Point(143, 110);
+            this.ManageDeleteAssignmentButton.Name = "ManageDeleteAssignmentButton";
+            this.ManageDeleteAssignmentButton.Size = new System.Drawing.Size(114, 49);
+            this.ManageDeleteAssignmentButton.TabIndex = 5;
+            this.ManageDeleteAssignmentButton.Text = "Delete Assignment";
+            this.ManageDeleteAssignmentButton.UseVisualStyleBackColor = true;
+            this.ManageDeleteAssignmentButton.Click += new System.EventHandler(this.ManageDeleteAssignmentButton_Click);
+            // 
+            // ManageAddAssignmentButton
+            // 
+            this.ManageAddAssignmentButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.ManageAddAssignmentButton.Location = new System.Drawing.Point(9, 110);
+            this.ManageAddAssignmentButton.Name = "ManageAddAssignmentButton";
+            this.ManageAddAssignmentButton.Size = new System.Drawing.Size(114, 49);
+            this.ManageAddAssignmentButton.TabIndex = 4;
+            this.ManageAddAssignmentButton.Text = "Add Assignment";
+            this.ManageAddAssignmentButton.UseVisualStyleBackColor = true;
+            this.ManageAddAssignmentButton.Click += new System.EventHandler(this.ManageAddAssignmentButton_Click);
+            // 
+            // ManageDeleteCourseButton
+            // 
+            this.ManageDeleteCourseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.ManageDeleteCourseButton.Location = new System.Drawing.Point(143, 46);
+            this.ManageDeleteCourseButton.Name = "ManageDeleteCourseButton";
+            this.ManageDeleteCourseButton.Size = new System.Drawing.Size(114, 51);
+            this.ManageDeleteCourseButton.TabIndex = 3;
+            this.ManageDeleteCourseButton.Text = "Delete Course";
+            this.ManageDeleteCourseButton.UseVisualStyleBackColor = true;
+            this.ManageDeleteCourseButton.Click += new System.EventHandler(this.ManageDeleteCourseButton_Click);
+            // 
+            // ManageAddCourseButton
+            // 
+            this.ManageAddCourseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.ManageAddCourseButton.Location = new System.Drawing.Point(9, 44);
+            this.ManageAddCourseButton.Name = "ManageAddCourseButton";
+            this.ManageAddCourseButton.Size = new System.Drawing.Size(114, 51);
+            this.ManageAddCourseButton.TabIndex = 2;
+            this.ManageAddCourseButton.Text = "Add Course";
+            this.ManageAddCourseButton.UseVisualStyleBackColor = true;
+            this.ManageAddCourseButton.Click += new System.EventHandler(this.ManageAddCourseButton_Click);
             // 
             // label9
             // 
@@ -427,110 +381,158 @@
             // AddCoursePanel
             // 
             this.AddCoursePanel.BackColor = System.Drawing.Color.Transparent;
-            this.AddCoursePanel.Controls.Add(this.AddCourseButton);
+            this.AddCoursePanel.Controls.Add(this.AddCourseCancelButton);
+            this.AddCoursePanel.Controls.Add(this.AddCourseConfirmButton);
             this.AddCoursePanel.Controls.Add(this.label5);
             this.AddCoursePanel.Controls.Add(this.label2);
             this.AddCoursePanel.Controls.Add(this.label1);
             this.AddCoursePanel.Controls.Add(this.AddCourseInstructorTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
-            this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AddCoursePanel.Location = new System.Drawing.Point(649, 0);
+            this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AddCoursePanel.Location = new System.Drawing.Point(670, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
-            this.AddCoursePanel.Size = new System.Drawing.Size(561, 685);
+            this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
             this.AddCoursePanel.Visible = false;
             // 
-            // AddCourseButton
+            // AddCourseCancelButton
             // 
-            this.AddCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddCourseButton.Location = new System.Drawing.Point(344, 503);
-            this.AddCourseButton.Name = "AddCourseButton";
-            this.AddCourseButton.Size = new System.Drawing.Size(163, 57);
-            this.AddCourseButton.TabIndex = 7;
-            this.AddCourseButton.Text = "Add Course";
-            this.AddCourseButton.UseVisualStyleBackColor = true;
-            this.AddCourseButton.Click += new System.EventHandler(this.AddCourseButton_Click);
+            this.AddCourseCancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddCourseCancelButton.Location = new System.Drawing.Point(59, 503);
+            this.AddCourseCancelButton.Name = "AddCourseCancelButton";
+            this.AddCourseCancelButton.Size = new System.Drawing.Size(237, 87);
+            this.AddCourseCancelButton.TabIndex = 15;
+            this.AddCourseCancelButton.Text = "Cancel";
+            this.AddCourseCancelButton.UseVisualStyleBackColor = true;
+            this.AddCourseCancelButton.Click += new System.EventHandler(this.AddCourseCancelButton_Click);
+            // 
+            // AddCourseConfirmButton
+            // 
+            this.AddCourseConfirmButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddCourseConfirmButton.Location = new System.Drawing.Point(344, 503);
+            this.AddCourseConfirmButton.Name = "AddCourseConfirmButton";
+            this.AddCourseConfirmButton.Size = new System.Drawing.Size(163, 87);
+            this.AddCourseConfirmButton.TabIndex = 7;
+            this.AddCourseConfirmButton.Text = "Add Course";
+            this.AddCourseConfirmButton.UseVisualStyleBackColor = true;
+            this.AddCourseConfirmButton.Click += new System.EventHandler(this.AddCourseConfirmButton_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label5.Location = new System.Drawing.Point(90, 392);
+            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.label5.Location = new System.Drawing.Point(53, 396);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(182, 29);
+            this.label5.Size = new System.Drawing.Size(238, 32);
             this.label5.TabIndex = 6;
             this.label5.Text = "Instructor Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(64, 277);
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.label2.Location = new System.Drawing.Point(15, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 29);
+            this.label2.Size = new System.Drawing.Size(276, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "Course Short Hand";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(119, 167);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.label1.Location = new System.Drawing.Point(90, 174);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 29);
+            this.label1.Size = new System.Drawing.Size(201, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Course Name";
             // 
             // AddCourseInstructorTextbox
             // 
-            this.AddCourseInstructorTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.AddCourseInstructorTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddCourseInstructorTextbox.Location = new System.Drawing.Point(326, 389);
+            this.AddCourseInstructorTextbox.MaxLength = 12;
             this.AddCourseInstructorTextbox.Name = "AddCourseInstructorTextbox";
-            this.AddCourseInstructorTextbox.Size = new System.Drawing.Size(196, 34);
+            this.AddCourseInstructorTextbox.Size = new System.Drawing.Size(196, 39);
             this.AddCourseInstructorTextbox.TabIndex = 2;
             // 
             // AddCourseCourseShortTextbox
             // 
-            this.AddCourseCourseShortTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.AddCourseCourseShortTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddCourseCourseShortTextbox.Location = new System.Drawing.Point(326, 284);
+            this.AddCourseCourseShortTextbox.MaxLength = 6;
             this.AddCourseCourseShortTextbox.Name = "AddCourseCourseShortTextbox";
-            this.AddCourseCourseShortTextbox.Size = new System.Drawing.Size(196, 34);
+            this.AddCourseCourseShortTextbox.Size = new System.Drawing.Size(196, 39);
             this.AddCourseCourseShortTextbox.TabIndex = 1;
             // 
             // AddCourseCourseTexbox
             // 
-            this.AddCourseCourseTexbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.AddCourseCourseTexbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddCourseCourseTexbox.Location = new System.Drawing.Point(326, 174);
+            this.AddCourseCourseTexbox.MaxLength = 12;
             this.AddCourseCourseTexbox.Name = "AddCourseCourseTexbox";
-            this.AddCourseCourseTexbox.Size = new System.Drawing.Size(196, 34);
+            this.AddCourseCourseTexbox.Size = new System.Drawing.Size(196, 39);
             this.AddCourseCourseTexbox.TabIndex = 0;
             // 
             // AddAssignmentPanel
             // 
             this.AddAssignmentPanel.BackColor = System.Drawing.Color.Transparent;
+            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCancelButton);
+            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseNameLabel);
+            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseDropDown);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentConfirmButton);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDueDateCalendar);
-            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDescriptionField);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentPointTextbox);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentNameTextbox);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDateLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
-            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDescriptionLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
-            this.AddAssignmentPanel.Size = new System.Drawing.Size(652, 685);
+            this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
             this.AddAssignmentPanel.Visible = false;
             // 
+            // AddAssignmentCancelButton
+            // 
+            this.AddAssignmentCancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentCancelButton.Location = new System.Drawing.Point(70, 567);
+            this.AddAssignmentCancelButton.Name = "AddAssignmentCancelButton";
+            this.AddAssignmentCancelButton.Size = new System.Drawing.Size(237, 74);
+            this.AddAssignmentCancelButton.TabIndex = 13;
+            this.AddAssignmentCancelButton.Text = "Cancel";
+            this.AddAssignmentCancelButton.UseVisualStyleBackColor = true;
+            this.AddAssignmentCancelButton.Click += new System.EventHandler(this.AddAssignmentCancelButton_Click);
+            // 
+            // AddAssignmentCourseNameLabel
+            // 
+            this.AddAssignmentCourseNameLabel.AutoSize = true;
+            this.AddAssignmentCourseNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentCourseNameLabel.Location = new System.Drawing.Point(126, 121);
+            this.AddAssignmentCourseNameLabel.Name = "AddAssignmentCourseNameLabel";
+            this.AddAssignmentCourseNameLabel.Size = new System.Drawing.Size(201, 32);
+            this.AddAssignmentCourseNameLabel.TabIndex = 12;
+            this.AddAssignmentCourseNameLabel.Text = "Course Name";
+            // 
+            // AddAssignmentCourseDropDown
+            // 
+            this.AddAssignmentCourseDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddAssignmentCourseDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentCourseDropDown.FormattingEnabled = true;
+            this.AddAssignmentCourseDropDown.Location = new System.Drawing.Point(354, 118);
+            this.AddAssignmentCourseDropDown.Name = "AddAssignmentCourseDropDown";
+            this.AddAssignmentCourseDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddAssignmentCourseDropDown.Size = new System.Drawing.Size(237, 40);
+            this.AddAssignmentCourseDropDown.TabIndex = 11;
+            // 
             // AddAssignmentConfirmButton
             // 
-            this.AddAssignmentConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.AddAssignmentConfirmButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddAssignmentConfirmButton.Location = new System.Drawing.Point(354, 567);
             this.AddAssignmentConfirmButton.Name = "AddAssignmentConfirmButton";
-            this.AddAssignmentConfirmButton.Size = new System.Drawing.Size(237, 39);
+            this.AddAssignmentConfirmButton.Size = new System.Drawing.Size(237, 74);
             this.AddAssignmentConfirmButton.TabIndex = 10;
             this.AddAssignmentConfirmButton.Text = "Add Assignment";
             this.AddAssignmentConfirmButton.UseVisualStyleBackColor = true;
@@ -543,131 +545,131 @@
             this.AddAssignmentDueDateCalendar.Name = "AddAssignmentDueDateCalendar";
             this.AddAssignmentDueDateCalendar.TabIndex = 9;
             // 
-            // AddAssignmentDescriptionField
-            // 
-            this.AddAssignmentDescriptionField.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AddAssignmentDescriptionField.Location = new System.Drawing.Point(354, 117);
-            this.AddAssignmentDescriptionField.Name = "AddAssignmentDescriptionField";
-            this.AddAssignmentDescriptionField.Size = new System.Drawing.Size(237, 122);
-            this.AddAssignmentDescriptionField.TabIndex = 8;
-            this.AddAssignmentDescriptionField.Text = "";
-            // 
             // AddAssignmentPointTextbox
             // 
-            this.AddAssignmentPointTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.AddAssignmentPointTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddAssignmentPointTextbox.Location = new System.Drawing.Point(354, 266);
             this.AddAssignmentPointTextbox.Name = "AddAssignmentPointTextbox";
-            this.AddAssignmentPointTextbox.Size = new System.Drawing.Size(237, 34);
+            this.AddAssignmentPointTextbox.Size = new System.Drawing.Size(237, 39);
             this.AddAssignmentPointTextbox.TabIndex = 7;
             // 
             // AddAssignmentNameTextbox
             // 
-            this.AddAssignmentNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddAssignmentNameTextbox.Location = new System.Drawing.Point(354, 53);
+            this.AddAssignmentNameTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentNameTextbox.Location = new System.Drawing.Point(354, 191);
             this.AddAssignmentNameTextbox.Name = "AddAssignmentNameTextbox";
-            this.AddAssignmentNameTextbox.Size = new System.Drawing.Size(237, 34);
+            this.AddAssignmentNameTextbox.Size = new System.Drawing.Size(237, 39);
             this.AddAssignmentNameTextbox.TabIndex = 4;
             // 
             // AddAssignmentDateLabel
             // 
             this.AddAssignmentDateLabel.AutoSize = true;
-            this.AddAssignmentDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddAssignmentDateLabel.Location = new System.Drawing.Point(129, 360);
+            this.AddAssignmentDateLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentDateLabel.Location = new System.Drawing.Point(173, 341);
             this.AddAssignmentDateLabel.Name = "AddAssignmentDateLabel";
-            this.AddAssignmentDateLabel.Size = new System.Drawing.Size(113, 29);
+            this.AddAssignmentDateLabel.Size = new System.Drawing.Size(142, 32);
             this.AddAssignmentDateLabel.TabIndex = 3;
             this.AddAssignmentDateLabel.Text = "Due Date";
             // 
             // AddAssignmentDPointLabel
             // 
             this.AddAssignmentDPointLabel.AutoSize = true;
-            this.AddAssignmentDPointLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddAssignmentDPointLabel.Location = new System.Drawing.Point(130, 271);
+            this.AddAssignmentDPointLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentDPointLabel.Location = new System.Drawing.Point(156, 269);
             this.AddAssignmentDPointLabel.Name = "AddAssignmentDPointLabel";
-            this.AddAssignmentDPointLabel.Size = new System.Drawing.Size(135, 29);
+            this.AddAssignmentDPointLabel.Size = new System.Drawing.Size(171, 32);
             this.AddAssignmentDPointLabel.TabIndex = 2;
             this.AddAssignmentDPointLabel.Text = "Point Value";
             // 
             // AddAssignmentAssignmentNameLabel
             // 
             this.AddAssignmentAssignmentNameLabel.AutoSize = true;
-            this.AddAssignmentAssignmentNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddAssignmentAssignmentNameLabel.Location = new System.Drawing.Point(98, 56);
+            this.AddAssignmentAssignmentNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentAssignmentNameLabel.Location = new System.Drawing.Point(63, 191);
             this.AddAssignmentAssignmentNameLabel.Name = "AddAssignmentAssignmentNameLabel";
-            this.AddAssignmentAssignmentNameLabel.Size = new System.Drawing.Size(209, 29);
+            this.AddAssignmentAssignmentNameLabel.Size = new System.Drawing.Size(264, 32);
             this.AddAssignmentAssignmentNameLabel.TabIndex = 1;
             this.AddAssignmentAssignmentNameLabel.Text = "Assignment Name";
-            // 
-            // AddAssignmentDescriptionLabel
-            // 
-            this.AddAssignmentDescriptionLabel.AutoSize = true;
-            this.AddAssignmentDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.AddAssignmentDescriptionLabel.Location = new System.Drawing.Point(107, 152);
-            this.AddAssignmentDescriptionLabel.Name = "AddAssignmentDescriptionLabel";
-            this.AddAssignmentDescriptionLabel.Size = new System.Drawing.Size(135, 29);
-            this.AddAssignmentDescriptionLabel.TabIndex = 0;
-            this.AddAssignmentDescriptionLabel.Text = "Description";
             // 
             // DeletePanel
             // 
             this.DeletePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeletePanel.BackgroundImage")));
             this.DeletePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DeletePanel.Controls.Add(this.DeleteConfirmButton);
-            this.DeletePanel.Controls.Add(this.DeleteAssignmentDropdown);
-            this.DeletePanel.Controls.Add(this.DeleteCourseDropdown);
+            this.DeletePanel.Controls.Add(this.DeleteCancelButton);
+            this.DeletePanel.Controls.Add(this.DeleteAssignmentDropDown);
+            this.DeletePanel.Controls.Add(this.DeleteCourseDropDown);
+            this.DeletePanel.Controls.Add(this.DeleteItemButton);
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
-            this.DeletePanel.Location = new System.Drawing.Point(300, 152);
+            this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
             this.DeletePanel.Name = "DeletePanel";
-            this.DeletePanel.Size = new System.Drawing.Size(601, 379);
+            this.DeletePanel.Size = new System.Drawing.Size(670, 685);
             this.DeletePanel.TabIndex = 11;
             this.DeletePanel.Visible = false;
             // 
-            // DeleteConfirmButton
+            // DeleteCancelButton
             // 
-            this.DeleteConfirmButton.Location = new System.Drawing.Point(325, 276);
-            this.DeleteConfirmButton.Name = "DeleteConfirmButton";
-            this.DeleteConfirmButton.Size = new System.Drawing.Size(131, 34);
-            this.DeleteConfirmButton.TabIndex = 4;
-            this.DeleteConfirmButton.Text = "Delete";
-            this.DeleteConfirmButton.UseVisualStyleBackColor = true;
-            this.DeleteConfirmButton.Click += new System.EventHandler(this.DeleteConfirmButton_Click);
+            this.DeleteCancelButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteCancelButton.Location = new System.Drawing.Point(39, 305);
+            this.DeleteCancelButton.Name = "DeleteCancelButton";
+            this.DeleteCancelButton.Size = new System.Drawing.Size(237, 54);
+            this.DeleteCancelButton.TabIndex = 14;
+            this.DeleteCancelButton.Text = "Cancel";
+            this.DeleteCancelButton.UseVisualStyleBackColor = true;
+            this.DeleteCancelButton.Click += new System.EventHandler(this.DeleteCancelButton_Click);
             // 
-            // DeleteAssignmentDropdown
+            // DeleteAssignmentDropDown
             // 
-            this.DeleteAssignmentDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DeleteAssignmentDropdown.FormattingEnabled = true;
-            this.DeleteAssignmentDropdown.Location = new System.Drawing.Point(325, 191);
-            this.DeleteAssignmentDropdown.Name = "DeleteAssignmentDropdown";
-            this.DeleteAssignmentDropdown.Size = new System.Drawing.Size(121, 37);
-            this.DeleteAssignmentDropdown.TabIndex = 3;
+            this.DeleteAssignmentDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeleteAssignmentDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteAssignmentDropDown.FormattingEnabled = true;
+            this.DeleteAssignmentDropDown.Location = new System.Drawing.Point(315, 195);
+            this.DeleteAssignmentDropDown.Name = "DeleteAssignmentDropDown";
+            this.DeleteAssignmentDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DeleteAssignmentDropDown.Size = new System.Drawing.Size(237, 40);
+            this.DeleteAssignmentDropDown.TabIndex = 13;
             // 
-            // DeleteCourseDropdown
+            // DeleteCourseDropDown
             // 
-            this.DeleteCourseDropdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DeleteCourseDropdown.FormattingEnabled = true;
-            this.DeleteCourseDropdown.Location = new System.Drawing.Point(325, 89);
-            this.DeleteCourseDropdown.Name = "DeleteCourseDropdown";
-            this.DeleteCourseDropdown.Size = new System.Drawing.Size(121, 37);
-            this.DeleteCourseDropdown.TabIndex = 2;
+            this.DeleteCourseDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeleteCourseDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteCourseDropDown.FormattingEnabled = true;
+            this.DeleteCourseDropDown.Location = new System.Drawing.Point(315, 89);
+            this.DeleteCourseDropDown.Name = "DeleteCourseDropDown";
+            this.DeleteCourseDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DeleteCourseDropDown.Size = new System.Drawing.Size(237, 40);
+            this.DeleteCourseDropDown.TabIndex = 12;
+            this.DeleteCourseDropDown.SelectedIndexChanged += new System.EventHandler(this.DeleteCourseDropDown_SelectedIndexChanged);
+            // 
+            // DeleteItemButton
+            // 
+            this.DeleteItemButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteItemButton.Location = new System.Drawing.Point(315, 305);
+            this.DeleteItemButton.Name = "DeleteItemButton";
+            this.DeleteItemButton.Size = new System.Drawing.Size(237, 54);
+            this.DeleteItemButton.TabIndex = 8;
+            this.DeleteItemButton.Text = "Delete Item";
+            this.DeleteItemButton.UseVisualStyleBackColor = true;
+            this.DeleteItemButton.Click += new System.EventHandler(this.DeleteItemButton_Click);
             // 
             // DeleteAssignmentLabel
             // 
             this.DeleteAssignmentLabel.AutoSize = true;
-            this.DeleteAssignmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DeleteAssignmentLabel.Location = new System.Drawing.Point(69, 194);
+            this.DeleteAssignmentLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteAssignmentLabel.Location = new System.Drawing.Point(21, 198);
             this.DeleteAssignmentLabel.Name = "DeleteAssignmentLabel";
-            this.DeleteAssignmentLabel.Size = new System.Drawing.Size(212, 29);
+            this.DeleteAssignmentLabel.Size = new System.Drawing.Size(272, 32);
             this.DeleteAssignmentLabel.TabIndex = 1;
             this.DeleteAssignmentLabel.Text = "Select Assignment";
             // 
             // DeleteCourseLabel
             // 
             this.DeleteCourseLabel.AutoSize = true;
-            this.DeleteCourseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.DeleteCourseLabel.Location = new System.Drawing.Point(69, 92);
+            this.DeleteCourseLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.DeleteCourseLabel.Location = new System.Drawing.Point(85, 92);
             this.DeleteCourseLabel.Name = "DeleteCourseLabel";
-            this.DeleteCourseLabel.Size = new System.Drawing.Size(165, 29);
+            this.DeleteCourseLabel.Size = new System.Drawing.Size(209, 32);
             this.DeleteCourseLabel.TabIndex = 0;
             this.DeleteCourseLabel.Text = "Select Course";
             // 
@@ -676,23 +678,35 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackgroundPanel.BackgroundImage")));
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
+            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
+            this.BackgroundPanel.Controls.Add(this.DeletePanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
-            this.BackgroundPanel.Controls.Add(this.UpdateButton);
+            this.BackgroundPanel.Controls.Add(this.RefreshButton);
             this.BackgroundPanel.Controls.Add(this.HomeworkViewTitlePanel);
             this.BackgroundPanel.Controls.Add(this.StudyPanel);
             this.BackgroundPanel.Controls.Add(this.SortPanel);
             this.BackgroundPanel.Controls.Add(this.CompletedTitlePanel);
             this.BackgroundPanel.Controls.Add(this.EditPanel);
             this.BackgroundPanel.Controls.Add(this.CompletedPanel);
-            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
-            this.BackgroundPanel.Controls.Add(this.DeletePanel);
-            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Location = new System.Drawing.Point(0, 0);
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
             this.BackgroundPanel.TabIndex = 23;
+            // 
+            // HomeworkPanel
+            // 
+            this.HomeworkPanel.AutoScroll = true;
+            this.HomeworkPanel.BackColor = System.Drawing.Color.Transparent;
+            this.HomeworkPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkPanel.BackgroundImage")));
+            this.HomeworkPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.HomeworkPanel.Font = new System.Drawing.Font("Mistral", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeworkPanel.Location = new System.Drawing.Point(315, 79);
+            this.HomeworkPanel.Name = "HomeworkPanel";
+            this.HomeworkPanel.Size = new System.Drawing.Size(885, 301);
+            this.HomeworkPanel.TabIndex = 22;
             // 
             // MainForm
             // 
@@ -702,10 +716,9 @@
             this.ClientSize = new System.Drawing.Size(1202, 678);
             this.Controls.Add(this.BackgroundPanel);
             this.MaximumSize = new System.Drawing.Size(1220, 725);
-            this.MinimumSize = new System.Drawing.Size(912, 537);
+            this.MinimumSize = new System.Drawing.Size(1220, 725);
             this.Name = "MainForm";
             this.Text = "No-Hiss Homework";
-            this.HomeworkPanel.ResumeLayout(false);
             this.SortPanel.ResumeLayout(false);
             this.SortPanel.PerformLayout();
             this.EditPanel.ResumeLayout(false);
@@ -728,23 +741,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel HomeworkPanel;
         private System.Windows.Forms.Panel CompletedPanel;
         private System.Windows.Forms.ComboBox CourseDropDown;
         private System.Windows.Forms.ComboBox SortDropDown;
         private System.Windows.Forms.Button SortButton;
         private System.Windows.Forms.Label CourseLabel;
         private System.Windows.Forms.Label SortTypeLabel;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Label DeleteLabel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox ObjectTypeDropdown;
         private System.Windows.Forms.Button StudyTrendsButton;
         private System.Windows.Forms.Button StartStudyButton;
-        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Button NotificationButton;
         private System.Windows.Forms.Button CustomizeButton;
         private System.Windows.Forms.Panel SortPanel;
@@ -757,7 +762,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel HomeworkViewTitlePanel;
         private System.Windows.Forms.Label HomeworkViewLabel;
-        private System.Windows.Forms.Button Demo;
         private System.Windows.Forms.Panel AddCoursePanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
@@ -765,24 +769,32 @@
         private System.Windows.Forms.TextBox AddCourseInstructorTextbox;
         private System.Windows.Forms.TextBox AddCourseCourseShortTextbox;
         private System.Windows.Forms.TextBox AddCourseCourseTexbox;
-        private System.Windows.Forms.Button AddCourseButton;
+        private System.Windows.Forms.Button AddCourseConfirmButton;
         private System.Windows.Forms.Panel AddAssignmentPanel;
-        private System.Windows.Forms.RichTextBox AddAssignmentDescriptionField;
         private System.Windows.Forms.TextBox AddAssignmentPointTextbox;
         private System.Windows.Forms.TextBox AddAssignmentNameTextbox;
         private System.Windows.Forms.Label AddAssignmentDateLabel;
         private System.Windows.Forms.Label AddAssignmentDPointLabel;
         private System.Windows.Forms.Label AddAssignmentAssignmentNameLabel;
-        private System.Windows.Forms.Label AddAssignmentDescriptionLabel;
         private System.Windows.Forms.Button AddAssignmentConfirmButton;
         private System.Windows.Forms.MonthCalendar AddAssignmentDueDateCalendar;
         private System.Windows.Forms.Panel DeletePanel;
-        private System.Windows.Forms.Button DeleteConfirmButton;
-        private System.Windows.Forms.ComboBox DeleteAssignmentDropdown;
-        private System.Windows.Forms.ComboBox DeleteCourseDropdown;
         private System.Windows.Forms.Label DeleteAssignmentLabel;
         private System.Windows.Forms.Label DeleteCourseLabel;
         private System.Windows.Forms.Panel BackgroundPanel;
+        private System.Windows.Forms.Panel HomeworkPanel;
+        private System.Windows.Forms.Button ManageDeleteAssignmentButton;
+        private System.Windows.Forms.Button ManageAddAssignmentButton;
+        private System.Windows.Forms.Button ManageDeleteCourseButton;
+        private System.Windows.Forms.Button ManageAddCourseButton;
+        private System.Windows.Forms.ComboBox AddAssignmentCourseDropDown;
+        private System.Windows.Forms.Label AddAssignmentCourseNameLabel;
+        private System.Windows.Forms.ComboBox DeleteAssignmentDropDown;
+        private System.Windows.Forms.ComboBox DeleteCourseDropDown;
+        private System.Windows.Forms.Button DeleteItemButton;
+        private System.Windows.Forms.Button AddAssignmentCancelButton;
+        private System.Windows.Forms.Button DeleteCancelButton;
+        private System.Windows.Forms.Button AddCourseCancelButton;
     }
 }
 

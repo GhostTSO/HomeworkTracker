@@ -17,6 +17,8 @@ namespace HomeworkTracker
         private DateTime dueDate;
         private TimeSpan timeLeft;
         private string saveString;
+        private bool completed;
+        private AssignmentDisplayLabel assignmentLabel;
 
         //Zero Param Constructor
         public Assignment()
@@ -35,6 +37,8 @@ namespace HomeworkTracker
             this.timeLeft = this.dueDate - DateTime.Now;
             this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
                 this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
+            this.completed = false;
+            this.assignmentLabel = new AssignmentDisplayLabel();
         }
 
         //getters
@@ -66,31 +70,63 @@ namespace HomeworkTracker
         {
             return this.timeLeft;
         }
+        public bool getCompleted()
+        {
+            return this.completed;
+        }
+        public AssignmentDisplayLabel getAssignmentDisplayLabel()
+        {
+            return this.assignmentLabel;
+        }
 
         //Setters
-        public void getAssignmentName(string assignmentName)
+        public void setAssignmentName(string assignmentName)
         {
             this.assignmentName = assignmentName;
         }
-        public void getCourse(string course)
+        public void setCourse(string course)
         {
             this.course = course;
         }
-        public void getDescription(string description)
+        public void setDescription(string description)
         {
             this.description = description;
         }
-        public void getPointValue(float pointValue)
+        public void setPointValue(float pointValue)
         {
             this.pointValue = pointValue;
         }
-        public void getPriority(int priority)
+        public void setPriority(int priority)
         {
             this.priority = priority;
         }
-        public void getDueDate(DateTime dueDate)
+        public void setDueDate(DateTime dueDate)
         {
             this.dueDate = dueDate;
+        }
+        public void setAssignmentDisplayLabel(AssignmentDisplayLabel label)
+        {
+            this.assignmentLabel = label;
+            this.assignmentLabel.getCompleteButton().Click += new System.EventHandler(this.completeButton_Clicked);
+        }
+
+        public void toggleCompleted()
+        {
+            this.completed = !this.completed;
+        }
+
+        //Events
+        private void completeButton_Clicked(object sender, EventArgs e)
+        {
+            toggleCompleted();
+            if (this.completed)
+            {
+                this.assignmentLabel.getCompleteButton().Text = "Done!";
+            }
+            else
+            {
+                this.assignmentLabel.getCompleteButton().Text = "Complete?";
+            }
         }
 
         //Modifiers

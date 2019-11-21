@@ -97,6 +97,11 @@ namespace HomeworkTracker
             this.assignments.Add(newAssingment);
         }
 
+        public void removeAssignmentAt(int index)
+        {
+            this.assignments.RemoveAt(index);
+        }
+
         public void removeAssingment(Assignment removedAssignment)
         {
             this.assignments.Remove(removedAssignment);

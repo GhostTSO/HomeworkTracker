@@ -12,148 +12,251 @@ namespace HomeworkTracker
 {
     public partial class MainForm : Form
     {
+        private List<Course> courses = new List<Course>();
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        
+        //Event handling Confirmed Add Course Button being clicked
+        private void AddCourseConfirmButton_Click(object sender, EventArgs e)
         {
-            Label temp = new Label();
-            temp.Text = "You clicked a button";
-            temp.Size = new System.Drawing.Size(600, 20);
-            temp.Location = new System.Drawing.Point(10, this.CompletedPanel.Controls.Count * 20);
-            this.CompletedPanel.Controls.Add(temp);
-        }
-
-        private void Demo_Click(object sender, EventArgs e)
-        {
-
-            this.Demo.Visible = false;
-
-            Label temp = new Label();
-            temp.Text = "CS 3300";
-            this.CourseDropDown.Items.Add(temp.Text);
-            temp.Text = "CS 4100";
-            this.CourseDropDown.Items.Add(temp.Text);
-            temp.Text = "HUM 3990";
-            this.CourseDropDown.Items.Add(temp.Text);
-            temp.Text = "Standard";
-            this.SortDropDown.Items.Add(temp.Text);
-            this.SortDropDown.Text = temp.Text;
-
-            this.CourseDropDown.Text = "CS 3300";
-            temp.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp.Size = new System.Drawing.Size(600, 20);
-            temp.Text = "Project Ideas                                Software                 Sep  6, 2019                On-Time";
-            temp.Location = new System.Drawing.Point(10, this.CompletedPanel.Controls.Count * 30 + 30);
-
-            this.CompletedPanel.Controls.Add(temp);
-            Label temp1 = new Label();
-            temp1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp1.Text = "Project Concept/Charter             Software                 Sep 24, 2019               On-Time";
-            temp1.Location = new System.Drawing.Point(10, this.CompletedPanel.Controls.Count * 30 + 30);
-            temp1.Size = new System.Drawing.Size(600, 20);
-            this.CompletedPanel.Controls.Add(temp1);
-
-            Label temp2 = new Label();
-            temp2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp2.Text = "Cosine Project                              Pre-Calc                  Oct   5, 2019                Late!";
-            temp2.Location = new System.Drawing.Point(10, this.CompletedPanel.Controls.Count * 30 + 30);
-            temp2.Size = new System.Drawing.Size(600, 20);
-            this.CompletedPanel.Controls.Add(temp2);
-
-            Label temp3 = new Label();
-            temp3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp3.Text = "Project SDD Presentation                       Software                  Nov   5, 2019        Late!";
-            temp3.Location = new System.Drawing.Point(10, this.HomeworkPanel.Controls.Count * 30);
-            temp3.Size = new System.Drawing.Size(600, 20);
-            this.HomeworkPanel.Controls.Add(temp3);
-        }
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            if (this.ObjectTypeDropdown.SelectedIndex == 0) { 
-            this.AddCoursePanel.BringToFront();
-            this.AddCourseCourseTexbox.Text = "";
-            this.AddCourseCourseShortTextbox.Text = "";
-            this.AddCourseInstructorTextbox.Text = "";
-            this.AddCoursePanel.Visible = true;
-            }else if(this.ObjectTypeDropdown.SelectedIndex == 1)
+            //checks to see if these course boxes have filled values
+            if (this.AddCourseCourseTexbox.TextLength > 0 && this.AddCourseCourseShortTextbox.TextLength > 0)
             {
-                this.AddAssignmentPanel.BringToFront();
-                this.AddAssignmentNameTextbox.Text = "";
-                this.AddAssignmentDescriptionField.Text = "";
-                this.AddAssignmentPointTextbox.Text = "";
-                this.AddAssignmentPanel.Visible = true;
+
+                //Parse the boxes and create a course object into our course collection
+                courses.Add(new Course( this.AddCourseCourseTexbox.Text, 
+                                        this.AddCourseCourseShortTextbox.Text, 
+                                        System.Drawing.Color.Black, 
+                                        this.AddCourseInstructorTextbox.Text));
+
+                //resetting back to standard display
+                this.CourseDropDown.Items.Add(this.AddCourseCourseShortTextbox.Text);
+                this.AddCoursePanel.SendToBack();
+                this.AddCoursePanel.Visible = false;
+                this.CourseDropDown.SelectedIndex = this.CourseDropDown.Items.Count-1;
             }
         }
 
-        private void AddCourseButton_Click(object sender, EventArgs e)
-        {
-            
-            this.AddCoursePanel.Visible = false;
-            this.AddCoursePanel.SendToBack();
-            this.CourseDropDown.Items.Add(this.AddCourseCourseShortTextbox.Text);
-        }
-
+        //Event handling Confirmed Add Assignment Button being clicked
         private void AddAssignmentConfirmButton_Click(object sender, EventArgs e)
         {
-            int yValue = this.HomeworkPanel.Controls.Count * 30;
-            this.AddAssignmentPanel.Visible = false;
-            Label temp3 = new Label();
-            temp3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp3.Text = this.AddAssignmentNameTextbox.Text;
-            temp3.Location = new System.Drawing.Point(10, yValue);
-            temp3.Size = new System.Drawing.Size(100, 20);
-            this.HomeworkPanel.Controls.Add(temp3);
-            Label temp = new Label();
-            temp.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            temp.Size = new System.Drawing.Size(100, 20);
-            temp.Text = this.AddAssignmentDueDateCalendar.SelectionStart.Date.ToString();
-            temp.Location = new System.Drawing.Point(430, yValue);
-            this.HomeworkPanel.Controls.Add(temp);
+            //checks that an assignment name was typed
+                //checks that a course was selected
+                    //checks if point value was entered
+            if(this.AddAssignmentNameTextbox.TextLength > 0 && 
+                this.AddAssignmentCourseDropDown.SelectedIndex > -1 && 
+                    this.AddAssignmentPointTextbox.TextLength > 0)
+            {
+                //try catch to see if point value is actually parseble
+                try
+                {
+                    //adds an assignment object in the selected course by parsing the data inputted
+                    courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(
+                                    new Assignment( this.AddAssignmentNameTextbox.Text,
+                                                    this.CourseDropDown.Text, 
+                                                    "", 
+                                                    float.Parse(this.AddAssignmentPointTextbox.Text), 
+                                                    0, 
+                                                    this.AddAssignmentDueDateCalendar.SelectionStart));
+
+                    //reset display to standard view
+                    this.AddAssignmentPanel.SendToBack();
+                    this.AddAssignmentPanel.Visible = false;
+                    UpdateAssignmentDisplay();
+                }
+                //debugging error
+                catch
+                {
+                    Console.WriteLine("Improper input in add assignment field");
+                }
+            }
+        }
+        
+
+      
+        //Event Manage Delete Course button clicked
+        private void ManageDeleteCourseButton_Click(object sender, EventArgs e)
+        {
+            //clear residual data from last attempt and populate current info
+            this.DeleteCourseDropDown.Items.Clear();
+            foreach (Course course in courses)
+            {
+                this.DeleteCourseDropDown.Items.Add(course.getCourseName());
+            }
+
+            //display and hide appropriate information
+            this.DeleteAssignmentDropDown.Visible = false;
+            this.DeleteAssignmentLabel.Visible = false;
+            this.DeleteItemButton.Text = "Delete Course";
+            this.DeletePanel.Visible = true;
+
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        //Event Manage Add Course button clicked
+        private void ManageAddCourseButton_Click(object sender, EventArgs e)
         {
-            this.DeletePanel.Visible = true;
-            this.DeletePanel.BringToFront();
-            if(this.ObjectTypeDropdown.SelectedIndex == 0)
+            //display and hide appropriate information
+            this.AddCourseCourseShortTextbox.Text = "";
+            this.AddCourseCourseTexbox.Text = "";
+            this.AddCourseInstructorTextbox.Text = "";
+            this.AddCoursePanel.BringToFront();
+            this.AddCoursePanel.Visible = true;
+        }
+
+        //Event Manage Add Assignment button clicked
+        private void ManageAddAssignmentButton_Click(object sender, EventArgs e)
+        {
+            //removes old assignment items and adds current
+            this.AddAssignmentCourseDropDown.Items.Clear();
+            Object[] temp = new Object[this.CourseDropDown.Items.Count];
+            this.CourseDropDown.Items.CopyTo(temp, 0);
+            this.AddAssignmentCourseDropDown.Items.AddRange(temp);
+            
+            //resets to default values
+            this.AddAssignmentNameTextbox.Text = "";
+            this.AddAssignmentPointTextbox.Text = "";
+            this.AddAssignmentDueDateCalendar.SetDate(DateTime.Today);
+            this.AddAssignmentPanel.BringToFront();
+            this.AddAssignmentPanel.Visible = true;
+        }
+
+        //Event Manage Delete Assignment button clicked
+        private void ManageDeleteAssignmentButton_Click(object sender, EventArgs e)
+        {
+            //removes old course items and adds current
+            this.DeleteCourseDropDown.Items.Clear();
+            foreach (Course course in courses)
             {
-                this.DeleteAssignmentDropdown.Visible = false;
-                this.DeleteAssignmentLabel.Visible = false;
+                this.DeleteCourseDropDown.Items.Add(course.getCourseName());
+            }
+
+            //makes the appropriate information visible
+            this.DeleteAssignmentDropDown.Visible = true;
+            this.DeleteAssignmentLabel.Visible = true;
+            this.DeletePanel.Visible = true;
+            this.DeleteItemButton.Text = "Delete Assignment";
+            this.DeletePanel.Visible = true;
+        }
+
+        //This method is to update the display entirely
+        private void UpdateAssignmentDisplay()
+        {
+
+            this.HomeworkPanel.Controls.Clear();
+            this.CompletedPanel.Controls.Clear();
+            if (this.CourseDropDown.SelectedIndex > -1)
+            {
+                foreach (Assignment assignment in courses.ElementAt(this.CourseDropDown.SelectedIndex).getAssignments())
+                {
+
+                    Console.WriteLine(assignment.getAssignmentName());
+
+                    if (assignment.getCompleted())
+                    {
+                        int yPos = 45 * this.CompletedPanel.Controls.Count / 4 + 30;
+                        assignment.setAssignmentDisplayLabel(
+                            new AssignmentDisplayLabel(
+                                    assignment.getAssignmentName(),
+                                    assignment.getCourse(),
+                                    assignment.getDueDate().ToShortDateString(),
+                                    yPos));
+
+                        assignment.getAssignmentDisplayLabel().getCompleteButton().Text = "Done!";
+
+                        this.CompletedPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getAssignmentLabel());
+                        this.CompletedPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getCourseLabel());
+                        this.CompletedPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getDateLabel());
+                        this.CompletedPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getCompleteButton());
+                    }
+                    else
+                    {
+                        Console.WriteLine(this.HomeworkPanel.Controls.Count);
+                        int yPos = 45 * this.HomeworkPanel.Controls.Count / 4 + 30;
+                        assignment.setAssignmentDisplayLabel(
+                            new AssignmentDisplayLabel(
+                                    assignment.getAssignmentName(),
+                                    assignment.getCourse(),
+                                    assignment.getDueDate().ToShortDateString(),
+                                    yPos));
+
+                        this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getAssignmentLabel());
+                        this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getCourseLabel());
+                        this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getDateLabel());
+                        this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getCompleteButton());
+
+                    }
+                }
+            }
+            Console.WriteLine("Items in Completed Panel: " + this.CompletedLabel.Controls.Count/4);
+            Console.WriteLine("Items in Homework Panel: " + this.HomeworkPanel.Controls.Count/4);
+
+        }
+
+        //Event Refresh Button click refreshes the display
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            UpdateAssignmentDisplay();
+        }
+
+        //Event Delete Cancel Button click hides the delete panel
+        private void DeleteCancelButton_Click(object sender, EventArgs e)
+        {
+            this.DeletePanel.Visible = false;
+        }
+
+        //Event Add Assignment Cancel button click hides the add asssignment panel
+        private void AddAssignmentCancelButton_Click(object sender, EventArgs e)
+        {
+            this.AddAssignmentPanel.Visible = false;
+        }
+
+        //Event Add Course Cancel button click hides the add course panel
+        private void AddCourseCancelButton_Click(object sender, EventArgs e)
+        {
+            this.AddCoursePanel.Visible = false;
+        }
+
+        //Event Delete Course Dropdown change populates the assignment dropdown with the assignments of that course
+        private void DeleteCourseDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Clear old assignments and populate the correct assignments
+            this.DeleteAssignmentDropDown.Items.Clear();
+            foreach (Assignment assignment in courses.ElementAt(this.DeleteCourseDropDown.SelectedIndex).getAssignments())
+            {
+                this.DeleteAssignmentDropDown.Items.Add(assignment.getAssignmentName());
+            }
+
+        }
+
+        //Event Delete Item button click deletes assignment or courses depending on the state teh delete menu is in
+        private void DeleteItemButton_Click(object sender, EventArgs e)
+        {
+            //if true then we are deleteing an assignment, else we are deleting a course
+            if (this.DeleteAssignmentDropDown.Visible)
+            {
+                courses.ElementAt(this.DeleteCourseDropDown.SelectedIndex).removeAssignmentAt(this.DeleteAssignmentDropDown.SelectedIndex);
             }
             else
             {
-                this.DeleteAssignmentLabel.Visible = true;
-                this.DeleteAssignmentDropdown.Visible = true;
+                courses.RemoveAt(this.DeleteCourseDropDown.SelectedIndex);
             }
 
-            int selected = this.CourseDropDown.SelectedIndex;
-            for(int i = this.DeleteCourseDropdown.Items.Count-1; i >= 0 ; i--)
+            //repopulate the course main dropdown with the current information
+            this.CourseDropDown.Items.Clear();
+            foreach(Course course in courses)
             {
-                this.DeleteCourseDropdown.Items.RemoveAt(i);
-            }
-            this.DeleteAssignmentDropdown.Items.Clear();
-            for(int i = 0; i < this.CourseDropDown.Items.Count; i++)
-            {
-                this.CourseDropDown.SelectedIndex = i;
-                DeleteCourseDropdown.Items.Add(this.CourseDropDown.Text);
+                this.CourseDropDown.Items.Add(course.getCourseID());
             }
 
-            this.CourseDropDown.SelectedIndex = selected;
-        }
-
-        private void DeleteConfirmButton_Click(object sender, EventArgs e)
-        {
-            if(this.DeleteAssignmentDropdown.Visible == false)
-            {
-                this.CourseDropDown.Items.RemoveAt(this.DeleteCourseDropdown.SelectedIndex);
-            }
-
+            //reset to default index
+            this.CourseDropDown.SelectedIndex = -1;
+            //update display
+            UpdateAssignmentDisplay();
+            //hide delete panel
             this.DeletePanel.Visible = false;
-            this.DeletePanel.SendToBack();
         }
     }
 }
