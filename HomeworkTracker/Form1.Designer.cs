@@ -98,7 +98,7 @@
             // 
             this.CompletedPanel.AutoScroll = true;
             this.CompletedPanel.BackColor = System.Drawing.Color.Transparent;
-            this.CompletedPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompletedPanel.BackgroundImage")));
+            this.CompletedPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.PanelBlue;
             this.CompletedPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CompletedPanel.Font = new System.Drawing.Font("Mistral", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompletedPanel.Location = new System.Drawing.Point(315, 414);
@@ -216,7 +216,7 @@
             // SortPanel
             // 
             this.SortPanel.BackColor = System.Drawing.Color.Transparent;
-            this.SortPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SortPanel.BackgroundImage")));
+            this.SortPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
             this.SortPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SortPanel.Controls.Add(this.SortRequestLabel);
             this.SortPanel.Controls.Add(this.CourseDropDown);
@@ -243,7 +243,7 @@
             // EditPanel
             // 
             this.EditPanel.BackColor = System.Drawing.Color.Transparent;
-            this.EditPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditPanel.BackgroundImage")));
+            this.EditPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
             this.EditPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditPanel.Controls.Add(this.ManageDeleteAssignmentButton);
             this.EditPanel.Controls.Add(this.ManageAddAssignmentButton);
@@ -313,7 +313,7 @@
             // CompletedTitlePanel
             // 
             this.CompletedTitlePanel.BackColor = System.Drawing.Color.Transparent;
-            this.CompletedTitlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CompletedTitlePanel.BackgroundImage")));
+            this.CompletedTitlePanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
             this.CompletedTitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CompletedTitlePanel.Controls.Add(this.CompletedLabel);
             this.CompletedTitlePanel.Location = new System.Drawing.Point(315, 376);
@@ -335,7 +335,7 @@
             // StudyPanel
             // 
             this.StudyPanel.BackColor = System.Drawing.Color.Transparent;
-            this.StudyPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StudyPanel.BackgroundImage")));
+            this.StudyPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
             this.StudyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StudyPanel.Controls.Add(this.StartStudyButton);
             this.StudyPanel.Controls.Add(this.label10);
@@ -359,7 +359,7 @@
             // HomeworkViewTitlePanel
             // 
             this.HomeworkViewTitlePanel.BackColor = System.Drawing.Color.Transparent;
-            this.HomeworkViewTitlePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkViewTitlePanel.BackgroundImage")));
+            this.HomeworkViewTitlePanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
             this.HomeworkViewTitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.HomeworkViewTitlePanel.Controls.Add(this.HomeworkViewLabel);
             this.HomeworkViewTitlePanel.Location = new System.Drawing.Point(315, 31);
@@ -381,6 +381,7 @@
             // AddCoursePanel
             // 
             this.AddCoursePanel.BackColor = System.Drawing.Color.Transparent;
+            this.AddCoursePanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.AddCoursePanel.Controls.Add(this.AddCourseCancelButton);
             this.AddCoursePanel.Controls.Add(this.AddCourseConfirmButton);
             this.AddCoursePanel.Controls.Add(this.label5);
@@ -390,7 +391,7 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddCoursePanel.Location = new System.Drawing.Point(670, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(1340, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
@@ -478,6 +479,7 @@
             // AddAssignmentPanel
             // 
             this.AddAssignmentPanel.BackColor = System.Drawing.Color.Transparent;
+            this.AddAssignmentPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCancelButton);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseNameLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseDropDown);
@@ -489,7 +491,7 @@
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
             this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
@@ -593,7 +595,7 @@
             // 
             // DeletePanel
             // 
-            this.DeletePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeletePanel.BackgroundImage")));
+            this.DeletePanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.DeletePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeletePanel.Controls.Add(this.DeleteCancelButton);
             this.DeletePanel.Controls.Add(this.DeleteAssignmentDropDown);
@@ -602,7 +604,7 @@
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
             this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
+            this.DeletePanel.Location = new System.Drawing.Point(670, 0);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(670, 685);
             this.DeletePanel.TabIndex = 11;
@@ -678,9 +680,9 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackgroundPanel.BackgroundImage")));
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.DeletePanel);
+            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
@@ -700,7 +702,7 @@
             // 
             this.HomeworkPanel.AutoScroll = true;
             this.HomeworkPanel.BackColor = System.Drawing.Color.Transparent;
-            this.HomeworkPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeworkPanel.BackgroundImage")));
+            this.HomeworkPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.PanelBlue;
             this.HomeworkPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.HomeworkPanel.Font = new System.Drawing.Font("Mistral", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeworkPanel.Location = new System.Drawing.Point(315, 79);
