@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
@@ -678,7 +677,7 @@
             // BackgroundPanel
             // 
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
-            this.BackgroundPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackgroundPanel.BackgroundImage")));
+            this.BackgroundPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.DeletePanel);
