@@ -142,7 +142,7 @@ namespace HomeworkTracker
         //??? -- This might better be placed internal to another class that focuses on saving and loading info in.
         public void saveAssignment()
         {
-            string loadInfoDestination = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUps.txt";
+            string loadInfoDestination = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt";
 
             this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
                 this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
@@ -156,7 +156,7 @@ namespace HomeworkTracker
         //NEEDS TO BE TESTED
         public void deleteAssignment()
         {
-            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
+            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
 
             //For this to be correct with the database, we consistently need to update the DB as we make changes.
@@ -183,7 +183,7 @@ namespace HomeworkTracker
         private void updateAssignment()
         {
             //Still Needed
-            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
+            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
 
             //For this to be correct with the database, we consistently need to update the DB as we make changes.

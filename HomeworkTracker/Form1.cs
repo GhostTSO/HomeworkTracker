@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace HomeworkTracker
         public MainForm()
         {
             InitializeComponent();
+            loadInfo();
         }
 
         
@@ -25,12 +27,12 @@ namespace HomeworkTracker
             //checks to see if these course boxes have filled values
             if (this.AddCourseCourseTexbox.TextLength > 0 && this.AddCourseCourseShortTextbox.TextLength > 0)
             {
-
+                
                 //Parse the boxes and create a course object into our course collection
-                courses.Add(new Course( this.AddCourseCourseTexbox.Text, 
-                                        this.AddCourseCourseShortTextbox.Text, 
-                                        System.Drawing.Color.Black, 
-                                        this.AddCourseInstructorTextbox.Text));
+                Course course = new Course(this.AddCourseCourseTexbox.Text, this.AddCourseCourseShortTextbox.Text,
+                                        Color.Black, this.AddCourseInstructorTextbox.Text);
+                course.saveCourse();
+                courses.Add(course);
 
                 //resetting back to standard display
                 this.CourseDropDown.Items.Add(this.AddCourseCourseShortTextbox.Text);
@@ -54,13 +56,15 @@ namespace HomeworkTracker
                 try
                 {
                     //adds an assignment object in the selected course by parsing the data inputted
-                    courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(
-                                    new Assignment( this.AddAssignmentNameTextbox.Text,
-                                                    this.AddAssignmentCourseDropDown.Text, 
+                    Assignment assignment = new Assignment(this.AddAssignmentNameTextbox.Text, 
+                                                    this.AddAssignmentCourseDropDown.Text,
                                                     "", 
-                                                    float.Parse(this.AddAssignmentPointTextbox.Text), 
-                                                    Int32.Parse(this.AddAssignmentPriorityTextbox.Text), 
-                                                    this.AddAssignmentDueDateCalendar.SelectionStart));
+                                                    float.Parse(this.AddAssignmentPointTextbox.Text),
+                                                    Int32.Parse(this.AddAssignmentPriorityTextbox.Text),
+                                                    this.AddAssignmentDueDateCalendar.SelectionStart);
+
+                    assignment.saveAssignment();
+                    courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(assignment);
 
                     //reset display to standard view
                     this.AddAssignmentPanel.SendToBack();
@@ -260,6 +264,50 @@ namespace HomeworkTracker
         {
             this.courses.ElementAt(this.CourseDropDown.SelectedIndex).sortAssignments(this.SortDropDown.SelectedIndex);
             UpdateAssignmentDisplay();
+        }
+
+        //Reads from the correct files and stores 
+        private void loadInfo()
+        {
+            string line;
+            string[] info;
+            using (StreamReader sr = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    info = line.Split(',');
+                    Course course = 
+                        new Course(info[0], info[1], Color.FromName(info[2]), info[3], TimeSpan.Parse(info[4]));
+                    courses.Add(course);
+                }
+            }
+
+            //Load Course into the dropdown menu
+            foreach(Course course in courses)
+            {
+                this.CourseDropDown.Items.Add(course.getCourseID());
+                this.CourseDropDown.SelectedIndex = this.CourseDropDown.Items.Count - 1;
+            }
+
+            //Populates each course with their appropriate assignments
+            using (StreamReader sr = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    info = line.Split(',');
+                    Assignment assignment = 
+                        new Assignment(info[0], info[1], info[2], float.Parse(info[3]), Int32.Parse(info[4]), 
+                                DateTime.Parse(info[5]));
+                    foreach (Course course in courses)
+                    {
+                        if (assignment.getCourse() == course.getCourseID())
+                        {
+                            course.addAssignment(assignment);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }
