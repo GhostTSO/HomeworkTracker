@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -260,6 +261,43 @@ namespace HomeworkTracker
         {
             this.courses.ElementAt(this.CourseDropDown.SelectedIndex).sortAssignments(this.SortDropDown.SelectedIndex);
             UpdateAssignmentDisplay();
+        }
+
+        //Place into form1... call below instantiateComponenet()
+        //Reads from the correct files and stores 
+        private void loadInfo()
+        {
+            string line;
+            string[] info;
+            using (StreamReader sr = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    info = line.Split(',');
+                    Course course = 
+                        new Course(info[0], info[1], Color.FromName(info[2]), info[3]);
+                    courses.Add(course);
+                }
+            }
+
+            using (StreamReader sr = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    info = line.Split(',');
+                    Assignment assignment = 
+                        new Assignment(info[0], info[1], info[2], float.Parse(info[3]), Int32.Parse(info[4]), 
+                                DateTime.Parse(info[5]));
+                    foreach (Course course in courses)
+                    {
+                        if (assignment.getCourse() == course.getCourseName())
+                        {
+                            course.addAssignment(assignment);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }
