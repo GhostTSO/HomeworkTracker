@@ -134,7 +134,7 @@ namespace HomeworkTracker
         public void toggleCompleted()
         {
             this.completed = !this.completed;
-            //call update function here
+            updateAssignment();
         }
 
         //Events
@@ -226,15 +226,16 @@ namespace HomeworkTracker
                     else
                     {
                         //If line is the one that needs to be updated, then create revision
-                        this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
-                            this.assignmentName, this.course, this.description, this.pointValue, 
-                            this.priority, this.dueDate, this.timeLeft);
+                        this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                            this.assignmentName, this.course, this.description, this.pointValue,
+                            this.priority, this.dueDate, this.timeLeft, this.completed);
                         sw.WriteLine(this.saveString);
                     }
                 }
             }
-            File.Delete("file.txt");
-            File.Move(tempFile, "file.txt");
+            File.Delete(assignmentsLocation);
+            File.Move(tempFile, assignmentsLocation);
+            File.WriteAllText(tempFile, string.Empty);
         }
     }
 }
