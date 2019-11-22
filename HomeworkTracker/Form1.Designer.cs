@@ -82,6 +82,8 @@
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
             this.HomeworkPanel = new System.Windows.Forms.Panel();
+            this.AddAssignmentPriotyLabel = new System.Windows.Forms.Label();
+            this.AddAssignmentPriorityTextbox = new System.Windows.Forms.TextBox();
             this.SortPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.CompletedTitlePanel.SuspendLayout();
@@ -484,6 +486,8 @@
             // 
             this.AddAssignmentPanel.BackColor = System.Drawing.Color.Transparent;
             this.AddAssignmentPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
+            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentPriorityTextbox);
+            this.AddAssignmentPanel.Controls.Add(this.AddAssignmentPriotyLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCancelButton);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseNameLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentCourseDropDown);
@@ -516,7 +520,7 @@
             // 
             this.AddAssignmentCourseNameLabel.AutoSize = true;
             this.AddAssignmentCourseNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentCourseNameLabel.Location = new System.Drawing.Point(126, 121);
+            this.AddAssignmentCourseNameLabel.Location = new System.Drawing.Point(114, 66);
             this.AddAssignmentCourseNameLabel.Name = "AddAssignmentCourseNameLabel";
             this.AddAssignmentCourseNameLabel.Size = new System.Drawing.Size(201, 32);
             this.AddAssignmentCourseNameLabel.TabIndex = 12;
@@ -527,7 +531,7 @@
             this.AddAssignmentCourseDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddAssignmentCourseDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.AddAssignmentCourseDropDown.FormattingEnabled = true;
-            this.AddAssignmentCourseDropDown.Location = new System.Drawing.Point(354, 118);
+            this.AddAssignmentCourseDropDown.Location = new System.Drawing.Point(347, 66);
             this.AddAssignmentCourseDropDown.Name = "AddAssignmentCourseDropDown";
             this.AddAssignmentCourseDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddAssignmentCourseDropDown.Size = new System.Drawing.Size(237, 40);
@@ -554,7 +558,7 @@
             // AddAssignmentPointTextbox
             // 
             this.AddAssignmentPointTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentPointTextbox.Location = new System.Drawing.Point(354, 266);
+            this.AddAssignmentPointTextbox.Location = new System.Drawing.Point(347, 198);
             this.AddAssignmentPointTextbox.Name = "AddAssignmentPointTextbox";
             this.AddAssignmentPointTextbox.Size = new System.Drawing.Size(237, 39);
             this.AddAssignmentPointTextbox.TabIndex = 7;
@@ -562,7 +566,7 @@
             // AddAssignmentNameTextbox
             // 
             this.AddAssignmentNameTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentNameTextbox.Location = new System.Drawing.Point(354, 191);
+            this.AddAssignmentNameTextbox.Location = new System.Drawing.Point(347, 133);
             this.AddAssignmentNameTextbox.Name = "AddAssignmentNameTextbox";
             this.AddAssignmentNameTextbox.Size = new System.Drawing.Size(237, 39);
             this.AddAssignmentNameTextbox.TabIndex = 4;
@@ -581,7 +585,7 @@
             // 
             this.AddAssignmentDPointLabel.AutoSize = true;
             this.AddAssignmentDPointLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentDPointLabel.Location = new System.Drawing.Point(156, 269);
+            this.AddAssignmentDPointLabel.Location = new System.Drawing.Point(144, 203);
             this.AddAssignmentDPointLabel.Name = "AddAssignmentDPointLabel";
             this.AddAssignmentDPointLabel.Size = new System.Drawing.Size(171, 32);
             this.AddAssignmentDPointLabel.TabIndex = 2;
@@ -591,7 +595,7 @@
             // 
             this.AddAssignmentAssignmentNameLabel.AutoSize = true;
             this.AddAssignmentAssignmentNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentAssignmentNameLabel.Location = new System.Drawing.Point(63, 191);
+            this.AddAssignmentAssignmentNameLabel.Location = new System.Drawing.Point(51, 133);
             this.AddAssignmentAssignmentNameLabel.Name = "AddAssignmentAssignmentNameLabel";
             this.AddAssignmentAssignmentNameLabel.Size = new System.Drawing.Size(264, 32);
             this.AddAssignmentAssignmentNameLabel.TabIndex = 1;
@@ -714,6 +718,24 @@
             this.HomeworkPanel.Size = new System.Drawing.Size(885, 301);
             this.HomeworkPanel.TabIndex = 22;
             // 
+            // AddAssignmentPriotyLabel
+            // 
+            this.AddAssignmentPriotyLabel.AutoSize = true;
+            this.AddAssignmentPriotyLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentPriotyLabel.Location = new System.Drawing.Point(199, 272);
+            this.AddAssignmentPriotyLabel.Name = "AddAssignmentPriotyLabel";
+            this.AddAssignmentPriotyLabel.Size = new System.Drawing.Size(116, 32);
+            this.AddAssignmentPriotyLabel.TabIndex = 14;
+            this.AddAssignmentPriotyLabel.Text = "Priority";
+            // 
+            // AddAssignmentPriorityTextbox
+            // 
+            this.AddAssignmentPriorityTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentPriorityTextbox.Location = new System.Drawing.Point(347, 272);
+            this.AddAssignmentPriorityTextbox.Name = "AddAssignmentPriorityTextbox";
+            this.AddAssignmentPriorityTextbox.Size = new System.Drawing.Size(237, 39);
+            this.AddAssignmentPriorityTextbox.TabIndex = 15;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -801,6 +823,8 @@
         private System.Windows.Forms.Button AddAssignmentCancelButton;
         private System.Windows.Forms.Button DeleteCancelButton;
         private System.Windows.Forms.Button AddCourseCancelButton;
+        private System.Windows.Forms.TextBox AddAssignmentPriorityTextbox;
+        private System.Windows.Forms.Label AddAssignmentPriotyLabel;
     }
 }
 

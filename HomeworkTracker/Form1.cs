@@ -56,10 +56,10 @@ namespace HomeworkTracker
                     //adds an assignment object in the selected course by parsing the data inputted
                     courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(
                                     new Assignment( this.AddAssignmentNameTextbox.Text,
-                                                    this.CourseDropDown.Text, 
+                                                    this.AddAssignmentCourseDropDown.Text, 
                                                     "", 
                                                     float.Parse(this.AddAssignmentPointTextbox.Text), 
-                                                    0, 
+                                                    Int32.Parse(this.AddAssignmentPriorityTextbox.Text), 
                                                     this.AddAssignmentDueDateCalendar.SelectionStart));
 
                     //reset display to standard view
@@ -118,6 +118,7 @@ namespace HomeworkTracker
             //resets to default values
             this.AddAssignmentNameTextbox.Text = "";
             this.AddAssignmentPointTextbox.Text = "";
+            this.AddAssignmentPriorityTextbox.Text = "";
             this.AddAssignmentDueDateCalendar.SetDate(DateTime.Today);
             this.AddAssignmentPanel.BringToFront();
             this.AddAssignmentPanel.Visible = true;
