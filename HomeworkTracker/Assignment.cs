@@ -26,6 +26,7 @@ namespace HomeworkTracker
             //Blank Assignment
         }
 
+        //Used for creating intial assignment
         public Assignment(string AssignmentName, string Course, string Description, float PointValue, int Priority, DateTime DueDate)
         {
             this.assignmentName = AssignmentName;
@@ -35,9 +36,29 @@ namespace HomeworkTracker
             this.priority = Priority;
             this.dueDate = DueDate;
             this.timeLeft = this.dueDate - DateTime.Now;
-            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
-                this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
             this.completed = false;
+            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                this.assignmentName, this.course, this.description, this.pointValue, 
+                this.priority, this.dueDate, this.timeLeft, this.completed);
+            this.assignmentLabel = new AssignmentDisplayLabel();
+        }
+        
+        //8 parameter constructor... used for loading information
+        public Assignment(string AssignmentName, string Course, string Description, 
+            float PointValue, int Priority, DateTime DueDate, TimeSpan timeLeft, bool completed)
+        {
+            this.assignmentName = AssignmentName;
+            this.course = Course;
+            this.description = Description;
+            this.pointValue = PointValue;
+            this.priority = Priority;
+            this.dueDate = DueDate;
+            this.timeLeft = timeLeft;
+            this.completed = completed;
+            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                this.assignmentName, this.course, this.description, this.pointValue, 
+                this.priority, this.dueDate, this.timeLeft, this.completed);
+            
             this.assignmentLabel = new AssignmentDisplayLabel();
         }
 
@@ -113,6 +134,7 @@ namespace HomeworkTracker
         public void toggleCompleted()
         {
             this.completed = !this.completed;
+            //call update function here
         }
 
         //Events
@@ -144,8 +166,9 @@ namespace HomeworkTracker
         {
             string loadInfoDestination = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt";
 
-            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
-                this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
+            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+               this.assignmentName, this.course, this.description, this.pointValue,
+               this.priority, this.dueDate, this.timeLeft, this.completed);
 
             using (StreamWriter sw = File.AppendText(loadInfoDestination))
             {

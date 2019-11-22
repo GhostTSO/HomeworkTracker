@@ -42,7 +42,7 @@ namespace HomeworkTracker
             completeButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
             completeButton.Text = "Complete?";
         }
-        
+
         //getters
         public Label getAssignmentLabel()
         {
@@ -63,6 +63,5 @@ namespace HomeworkTracker
         {
             return this.completeButton;
         }
-        
     }
 }
