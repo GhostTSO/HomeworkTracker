@@ -151,8 +151,7 @@ namespace HomeworkTracker
             {
                 foreach (Assignment assignment in courses.ElementAt(this.CourseDropDown.SelectedIndex).getAssignments())
                 {
-
-                    Console.WriteLine(assignment.getAssignmentName());
+                    
 
                     if (assignment.getCompleted())
                     {
@@ -173,7 +172,6 @@ namespace HomeworkTracker
                     }
                     else
                     {
-                        Console.WriteLine(this.HomeworkPanel.Controls.Count);
                         int yPos = 45 * this.HomeworkPanel.Controls.Count / 4 + 30;
                         assignment.setAssignmentDisplayLabel(
                             new AssignmentDisplayLabel(
@@ -190,8 +188,6 @@ namespace HomeworkTracker
                     }
                 }
             }
-            Console.WriteLine("Items in Completed Panel: " + this.CompletedLabel.Controls.Count/4);
-            Console.WriteLine("Items in Homework Panel: " + this.HomeworkPanel.Controls.Count/4);
 
         }
 
@@ -257,6 +253,12 @@ namespace HomeworkTracker
             UpdateAssignmentDisplay();
             //hide delete panel
             this.DeletePanel.Visible = false;
+        }
+
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            this.courses.ElementAt(this.CourseDropDown.SelectedIndex).sortAssignments(this.SortDropDown.SelectedIndex);
+            UpdateAssignmentDisplay();
         }
     }
 }

@@ -84,6 +84,29 @@ namespace HomeworkTracker
             this.courseID = CourseID;
         }
 
+        public void sortAssignments(int sortType)
+        {
+            Sorts sorts = new Sorts();
+
+            switch (sortType)
+            {
+
+                case 0:
+                    this.assignments = sorts.mostEfficientSort(this.assignments);
+                    break;
+                case 1:
+                    this.assignments = sorts.prioritySort(this.assignments);
+                    break;
+                case 2:
+                    this.assignments = sorts.deadLineSort(this.assignments);
+                    break;
+                default:
+                    break;
+
+
+            }
+        }
+
         //Modifiers to accumulate studyTime and to add/remove Assingments
 
         //Might want to make this an int. Depends on how we want to use the StopWatch Function.

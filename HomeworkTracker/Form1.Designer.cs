@@ -121,6 +121,10 @@
             this.SortDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SortDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.SortDropDown.FormattingEnabled = true;
+            this.SortDropDown.Items.AddRange(new object[] {
+            "Most Effecient",
+            "Priority",
+            "Deadline"});
             this.SortDropDown.Location = new System.Drawing.Point(108, 102);
             this.SortDropDown.Name = "SortDropDown";
             this.SortDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -136,6 +140,7 @@
             this.SortButton.TabIndex = 4;
             this.SortButton.Text = "Generate";
             this.SortButton.UseVisualStyleBackColor = true;
+            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
             // CourseLabel
             // 
@@ -390,7 +395,7 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddCoursePanel.Location = new System.Drawing.Point(1340, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(670, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
@@ -490,7 +495,7 @@
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
             this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
@@ -603,7 +608,7 @@
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
             this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DeletePanel.Location = new System.Drawing.Point(670, 0);
+            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(670, 685);
             this.DeletePanel.TabIndex = 11;
@@ -679,9 +684,9 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.DeletePanel);
-            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
