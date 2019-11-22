@@ -156,8 +156,6 @@ namespace HomeworkTracker
             {
                 foreach (Assignment assignment in courses.ElementAt(this.CourseDropDown.SelectedIndex).getAssignments())
                 {
-                    
-
                     if (assignment.getCompleted())
                     {
                         int yPos = 45 * this.CompletedPanel.Controls.Count / 4 + 30;
@@ -297,7 +295,7 @@ namespace HomeworkTracker
                     info = line.Split(',');
                     Assignment assignment = 
                         new Assignment(info[0], info[1], info[2], float.Parse(info[3]), Int32.Parse(info[4]), 
-                                DateTime.Parse(info[5]));
+                                DateTime.Parse(info[5]), TimeSpan.Parse(info[6]), bool.Parse(info[7]));
                     foreach (Course course in courses)
                     {
                         if (assignment.getCourse() == course.getCourseID())
