@@ -17,21 +17,21 @@ namespace HomeworkTracker
         public List<Assignment> mostEfficientSort(List<Assignment> assignments)
         {
             //Highest Number will be first... This assignment has the highest priority
-            assignments.OrderByDescending(t => (t.getPointValue()*t.getPriority())/(t.getTimeLeft().TotalHours));
+            assignments = assignments.OrderByDescending(t => (t.getPointValue()*t.getPriority())/(t.getTimeLeft().TotalHours)).ToList();
             return assignments;
         }
 
         public List<Assignment> deadLineSort(List<Assignment> assignments)
         {
             //The assignment with the longest time left will be the last in the list
-            assignments.OrderBy(t => t.getTimeLeft());
+            assignments = assignments.OrderBy(t => t.getTimeLeft()).ToList();
             return assignments;
         }
 
         public List<Assignment> prioritySort(List<Assignment> assignments)
         {
             //The highest priority will be first, the lowest priority will be last
-            assignments.OrderByDescending(t => t.getPriority());
+            assignments = assignments.OrderByDescending(t => t.getPriority()).ToList();
             return assignments;
         }
     }
