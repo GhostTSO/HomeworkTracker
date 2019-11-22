@@ -17,6 +17,7 @@ namespace HomeworkTracker
         public MainForm()
         {
             InitializeComponent();
+            loadInfo();
         }
 
         
@@ -26,12 +27,12 @@ namespace HomeworkTracker
             //checks to see if these course boxes have filled values
             if (this.AddCourseCourseTexbox.TextLength > 0 && this.AddCourseCourseShortTextbox.TextLength > 0)
             {
-
+                
                 //Parse the boxes and create a course object into our course collection
-                courses.Add(new Course( this.AddCourseCourseTexbox.Text, 
-                                        this.AddCourseCourseShortTextbox.Text, 
-                                        System.Drawing.Color.Black, 
-                                        this.AddCourseInstructorTextbox.Text));
+                Course course = new Course(this.AddCourseCourseTexbox.Text, this.AddCourseCourseShortTextbox.Text,
+                                        Color.Black, this.AddCourseInstructorTextbox.Text);
+                course.saveCourse();
+                courses.Add(course);
 
                 //resetting back to standard display
                 this.CourseDropDown.Items.Add(this.AddCourseCourseShortTextbox.Text);
@@ -55,13 +56,15 @@ namespace HomeworkTracker
                 try
                 {
                     //adds an assignment object in the selected course by parsing the data inputted
-                    courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(
-                                    new Assignment( this.AddAssignmentNameTextbox.Text,
-                                                    this.AddAssignmentCourseDropDown.Text, 
+                    Assignment assignment = new Assignment(this.AddAssignmentNameTextbox.Text, 
+                                                    this.AddAssignmentCourseDropDown.Text,
                                                     "", 
-                                                    float.Parse(this.AddAssignmentPointTextbox.Text), 
-                                                    Int32.Parse(this.AddAssignmentPriorityTextbox.Text), 
-                                                    this.AddAssignmentDueDateCalendar.SelectionStart));
+                                                    float.Parse(this.AddAssignmentPointTextbox.Text),
+                                                    Int32.Parse(this.AddAssignmentPriorityTextbox.Text),
+                                                    this.AddAssignmentDueDateCalendar.SelectionStart);
+
+                    assignment.saveAssignment();
+                    courses.ElementAt(this.AddAssignmentCourseDropDown.SelectedIndex).addAssignment(assignment);
 
                     //reset display to standard view
                     this.AddAssignmentPanel.SendToBack();
@@ -263,7 +266,6 @@ namespace HomeworkTracker
             UpdateAssignmentDisplay();
         }
 
-        //Place into form1... call below instantiateComponenet()
         //Reads from the correct files and stores 
         private void loadInfo()
         {
@@ -275,11 +277,19 @@ namespace HomeworkTracker
                 {
                     info = line.Split(',');
                     Course course = 
-                        new Course(info[0], info[1], Color.FromName(info[2]), info[3]);
+                        new Course(info[0], info[1], Color.FromName(info[2]), info[3], TimeSpan.Parse(info[4]));
                     courses.Add(course);
                 }
             }
 
+            //Load Course into the dropdown menu
+            foreach(Course course in courses)
+            {
+                this.CourseDropDown.Items.Add(course.getCourseID());
+                this.CourseDropDown.SelectedIndex = this.CourseDropDown.Items.Count - 1;
+            }
+
+            //Populates each course with their appropriate assignments
             using (StreamReader sr = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt"))
             {
                 while ((line = sr.ReadLine()) != null)
@@ -290,7 +300,7 @@ namespace HomeworkTracker
                                 DateTime.Parse(info[5]));
                     foreach (Course course in courses)
                     {
-                        if (assignment.getCourse() == course.getCourseName())
+                        if (assignment.getCourse() == course.getCourseID())
                         {
                             course.addAssignment(assignment);
                             break;
