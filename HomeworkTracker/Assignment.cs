@@ -18,6 +18,7 @@ namespace HomeworkTracker
         private TimeSpan timeLeft;
         private string saveString;
         private bool completed;
+        private bool notified;
         private AssignmentDisplayLabel assignmentLabel;
 
         //Zero Param Constructor
@@ -95,6 +96,10 @@ namespace HomeworkTracker
         {
             return this.completed;
         }
+        public bool getNotified()
+        {
+            return this.notified;
+        }
         public AssignmentDisplayLabel getAssignmentDisplayLabel()
         {
             return this.assignmentLabel;
@@ -130,11 +135,18 @@ namespace HomeworkTracker
             this.assignmentLabel = label;
             this.assignmentLabel.getCompleteButton().Click += new System.EventHandler(this.completeButton_Clicked);
         }
-
         public void toggleCompleted()
         {
             this.completed = !this.completed;
             updateAssignment();
+        }
+        public void setNotified(bool state)
+        {
+            this.notified = state;
+        }
+        public void updateTimeLeft()
+        {
+            this.timeLeft = this.dueDate - DateTime.Now;
         }
 
         //Events
