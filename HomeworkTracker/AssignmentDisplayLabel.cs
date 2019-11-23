@@ -41,6 +41,7 @@ namespace HomeworkTracker
             completeButton.Location = new System.Drawing.Point(0, yPos);
             completeButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
             completeButton.Text = "Complete?";
+
         }
 
         //getters
@@ -62,6 +63,27 @@ namespace HomeworkTracker
         public Button getCompleteButton()
         {
             return this.completeButton;
+        }
+
+        //setters
+        public void setAssignmentLabelColor(System.Drawing.Color color)
+        {
+            this.assignmentNameLabel.ForeColor = color;
+        }
+
+        public void setCourseLabelColor(System.Drawing.Color color)
+        {
+            this.courseNameLabel.ForeColor = color;
+        }
+
+        public void setDateLabelColor(System.Drawing.Color color)
+        {
+            this.DateLabel.ForeColor = color;
+        }
+
+        public void setCompleteButtonColor(System.Drawing.Color color)
+        {
+            this.completeButton.ForeColor = color;
         }
     }
 }

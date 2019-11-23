@@ -14,6 +14,7 @@ namespace HomeworkTracker
     public partial class MainForm : Form
     {
         private List<Course> courses = new List<Course>();
+        Notifications notifications = new Notifications();
         public MainForm()
         {
             InitializeComponent();
@@ -175,6 +176,7 @@ namespace HomeworkTracker
                     }
                     else
                     {
+                        
                         int yPos = 45 * this.HomeworkPanel.Controls.Count / 4 + 30;
                         assignment.setAssignmentDisplayLabel(
                             new AssignmentDisplayLabel(
@@ -182,6 +184,13 @@ namespace HomeworkTracker
                                     assignment.getCourse(),
                                     assignment.getDueDate().ToShortDateString(),
                                     yPos));
+
+                        if (assignment.getNotified())
+                        {
+                            assignment.getAssignmentDisplayLabel().setAssignmentLabelColor(System.Drawing.Color.Red);
+                            assignment.getAssignmentDisplayLabel().setCourseLabelColor(System.Drawing.Color.Red);
+                            assignment.getAssignmentDisplayLabel().setDateLabelColor(System.Drawing.Color.Red);
+                        }
 
                         this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getAssignmentLabel());
                         this.HomeworkPanel.Controls.Add(assignment.getAssignmentDisplayLabel().getCourseLabel());
@@ -306,6 +315,23 @@ namespace HomeworkTracker
                     }
                 }
             }
+        }
+
+        private void NotificationsTimer_Tick(object sender, EventArgs e)
+        {
+            String assignmentsDue = notifications.checkDueDates(courses);
+
+            if (!assignmentsDue.Equals(""))
+            {
+                this.NotificationsLabel.Text = assignmentsDue;
+                this.NotificationPanel.Visible = true;
+                UpdateAssignmentDisplay();
+            }
+        }
+
+        private void NotificationsCloseButton_Click(object sender, EventArgs e)
+        {
+            this.NotificationPanel.Visible = false;
         }
     }
 }

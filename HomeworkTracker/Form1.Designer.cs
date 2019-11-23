@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
@@ -63,6 +64,8 @@
             this.AddCourseCourseShortTextbox = new System.Windows.Forms.TextBox();
             this.AddCourseCourseTexbox = new System.Windows.Forms.TextBox();
             this.AddAssignmentPanel = new System.Windows.Forms.Panel();
+            this.AddAssignmentPriorityTextbox = new System.Windows.Forms.TextBox();
+            this.AddAssignmentPriotyLabel = new System.Windows.Forms.Label();
             this.AddAssignmentCancelButton = new System.Windows.Forms.Button();
             this.AddAssignmentCourseNameLabel = new System.Windows.Forms.Label();
             this.AddAssignmentCourseDropDown = new System.Windows.Forms.ComboBox();
@@ -81,9 +84,13 @@
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
+            this.NotificationPanel = new System.Windows.Forms.Panel();
+            this.NotificationsCloseButton = new System.Windows.Forms.Button();
+            this.NotificationsInternalPanel = new System.Windows.Forms.Panel();
+            this.NotificationsLabel = new System.Windows.Forms.Label();
+            this.NotificationsTitle = new System.Windows.Forms.Label();
             this.HomeworkPanel = new System.Windows.Forms.Panel();
-            this.AddAssignmentPriotyLabel = new System.Windows.Forms.Label();
-            this.AddAssignmentPriorityTextbox = new System.Windows.Forms.TextBox();
+            this.NotificationsTimer = new System.Windows.Forms.Timer(this.components);
             this.SortPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.CompletedTitlePanel.SuspendLayout();
@@ -93,6 +100,8 @@
             this.AddAssignmentPanel.SuspendLayout();
             this.DeletePanel.SuspendLayout();
             this.BackgroundPanel.SuspendLayout();
+            this.NotificationPanel.SuspendLayout();
+            this.NotificationsInternalPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CompletedPanel
@@ -499,11 +508,29 @@
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
             this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
             this.AddAssignmentPanel.Visible = false;
+            // 
+            // AddAssignmentPriorityTextbox
+            // 
+            this.AddAssignmentPriorityTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentPriorityTextbox.Location = new System.Drawing.Point(347, 272);
+            this.AddAssignmentPriorityTextbox.Name = "AddAssignmentPriorityTextbox";
+            this.AddAssignmentPriorityTextbox.Size = new System.Drawing.Size(237, 39);
+            this.AddAssignmentPriorityTextbox.TabIndex = 15;
+            // 
+            // AddAssignmentPriotyLabel
+            // 
+            this.AddAssignmentPriotyLabel.AutoSize = true;
+            this.AddAssignmentPriotyLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.AddAssignmentPriotyLabel.Location = new System.Drawing.Point(199, 272);
+            this.AddAssignmentPriotyLabel.Name = "AddAssignmentPriotyLabel";
+            this.AddAssignmentPriotyLabel.Size = new System.Drawing.Size(116, 32);
+            this.AddAssignmentPriotyLabel.TabIndex = 14;
+            this.AddAssignmentPriotyLabel.Text = "Priority";
             // 
             // AddAssignmentCancelButton
             // 
@@ -612,7 +639,7 @@
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
             this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
+            this.DeletePanel.Location = new System.Drawing.Point(1340, 0);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(670, 685);
             this.DeletePanel.TabIndex = 11;
@@ -688,9 +715,10 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
-            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
+            this.BackgroundPanel.Controls.Add(this.NotificationPanel);
             this.BackgroundPanel.Controls.Add(this.DeletePanel);
+            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
+            this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
@@ -706,6 +734,58 @@
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
             this.BackgroundPanel.TabIndex = 23;
             // 
+            // NotificationPanel
+            // 
+            this.NotificationPanel.Controls.Add(this.NotificationsCloseButton);
+            this.NotificationPanel.Controls.Add(this.NotificationsInternalPanel);
+            this.NotificationPanel.Controls.Add(this.NotificationsTitle);
+            this.NotificationPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NotificationPanel.Location = new System.Drawing.Point(2010, 0);
+            this.NotificationPanel.Name = "NotificationPanel";
+            this.NotificationPanel.Size = new System.Drawing.Size(670, 685);
+            this.NotificationPanel.TabIndex = 23;
+            this.NotificationPanel.Visible = false;
+            // 
+            // NotificationsCloseButton
+            // 
+            this.NotificationsCloseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.NotificationsCloseButton.Location = new System.Drawing.Point(182, 519);
+            this.NotificationsCloseButton.Name = "NotificationsCloseButton";
+            this.NotificationsCloseButton.Size = new System.Drawing.Size(237, 54);
+            this.NotificationsCloseButton.TabIndex = 15;
+            this.NotificationsCloseButton.Text = "Confirm";
+            this.NotificationsCloseButton.UseVisualStyleBackColor = true;
+            this.NotificationsCloseButton.Click += new System.EventHandler(this.NotificationsCloseButton_Click);
+            // 
+            // NotificationsInternalPanel
+            // 
+            this.NotificationsInternalPanel.AutoSize = true;
+            this.NotificationsInternalPanel.Controls.Add(this.NotificationsLabel);
+            this.NotificationsInternalPanel.Location = new System.Drawing.Point(39, 154);
+            this.NotificationsInternalPanel.Name = "NotificationsInternalPanel";
+            this.NotificationsInternalPanel.Size = new System.Drawing.Size(589, 343);
+            this.NotificationsInternalPanel.TabIndex = 4;
+            // 
+            // NotificationsLabel
+            // 
+            this.NotificationsLabel.AutoSize = true;
+            this.NotificationsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.NotificationsLabel.Location = new System.Drawing.Point(17, 23);
+            this.NotificationsLabel.Name = "NotificationsLabel";
+            this.NotificationsLabel.Size = new System.Drawing.Size(272, 32);
+            this.NotificationsLabel.TabIndex = 2;
+            this.NotificationsLabel.Text = "Select Assignment";
+            // 
+            // NotificationsTitle
+            // 
+            this.NotificationsTitle.AutoSize = true;
+            this.NotificationsTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.NotificationsTitle.Location = new System.Drawing.Point(173, 31);
+            this.NotificationsTitle.Name = "NotificationsTitle";
+            this.NotificationsTitle.Size = new System.Drawing.Size(189, 32);
+            this.NotificationsTitle.TabIndex = 3;
+            this.NotificationsTitle.Text = "Notifications";
+            // 
             // HomeworkPanel
             // 
             this.HomeworkPanel.AutoScroll = true;
@@ -718,23 +798,11 @@
             this.HomeworkPanel.Size = new System.Drawing.Size(885, 301);
             this.HomeworkPanel.TabIndex = 22;
             // 
-            // AddAssignmentPriotyLabel
+            // NotificationsTimer
             // 
-            this.AddAssignmentPriotyLabel.AutoSize = true;
-            this.AddAssignmentPriotyLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentPriotyLabel.Location = new System.Drawing.Point(199, 272);
-            this.AddAssignmentPriotyLabel.Name = "AddAssignmentPriotyLabel";
-            this.AddAssignmentPriotyLabel.Size = new System.Drawing.Size(116, 32);
-            this.AddAssignmentPriotyLabel.TabIndex = 14;
-            this.AddAssignmentPriotyLabel.Text = "Priority";
-            // 
-            // AddAssignmentPriorityTextbox
-            // 
-            this.AddAssignmentPriorityTextbox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.AddAssignmentPriorityTextbox.Location = new System.Drawing.Point(347, 272);
-            this.AddAssignmentPriorityTextbox.Name = "AddAssignmentPriorityTextbox";
-            this.AddAssignmentPriorityTextbox.Size = new System.Drawing.Size(237, 39);
-            this.AddAssignmentPriorityTextbox.TabIndex = 15;
+            this.NotificationsTimer.Enabled = true;
+            this.NotificationsTimer.Interval = 5000;
+            this.NotificationsTimer.Tick += new System.EventHandler(this.NotificationsTimer_Tick);
             // 
             // MainForm
             // 
@@ -764,6 +832,10 @@
             this.DeletePanel.ResumeLayout(false);
             this.DeletePanel.PerformLayout();
             this.BackgroundPanel.ResumeLayout(false);
+            this.NotificationPanel.ResumeLayout(false);
+            this.NotificationPanel.PerformLayout();
+            this.NotificationsInternalPanel.ResumeLayout(false);
+            this.NotificationsInternalPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -825,6 +897,12 @@
         private System.Windows.Forms.Button AddCourseCancelButton;
         private System.Windows.Forms.TextBox AddAssignmentPriorityTextbox;
         private System.Windows.Forms.Label AddAssignmentPriotyLabel;
+        private System.Windows.Forms.Timer NotificationsTimer;
+        private System.Windows.Forms.Panel NotificationPanel;
+        private System.Windows.Forms.Button NotificationsCloseButton;
+        private System.Windows.Forms.Panel NotificationsInternalPanel;
+        private System.Windows.Forms.Label NotificationsLabel;
+        private System.Windows.Forms.Label NotificationsTitle;
     }
 }
 
