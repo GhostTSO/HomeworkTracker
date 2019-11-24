@@ -124,6 +124,7 @@ namespace HomeworkTracker
         public void addStudyTime(TimeSpan additionalTime)
         {
             this.studyTime += additionalTime;
+            updateAssignment();
         }
 
         public void addAssignment(Assignment newAssingment)
@@ -147,6 +148,12 @@ namespace HomeworkTracker
 
         //DB Functions ******************************************************************************************
 
+        public void resetSaveInfo()
+        {
+            this.saveString = String.Format("{0},{1},{2},{3},{4}",
+                this.courseName, this.courseID, this.colorID.ToString(), this.instructorName, this.studyTime);
+        }
+
         //??? -- This might better be placed internal to another class that focuses on saving and loading info in.
         public void saveCourse()
         {
@@ -160,13 +167,13 @@ namespace HomeworkTracker
             }
         }
 
+        //NOT POINTING TO CORRECT FILE PATHS YET.
         public void deleteCourse()
         {
             string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
 
-            this.saveString = String.Format("{0},{1},{2},{3},{4}",
-                this.courseName, this.courseID, this.colorID.ToString(), this.instructorName, this.studyTime);
+            resetSaveInfo();
 
             using (var sr = new StreamReader(assignmentsLocation))
             using (var sw = new StreamWriter(tempFile))
@@ -186,7 +193,37 @@ namespace HomeworkTracker
         //Need an Update Function when contents of assignment changes.
         public void updateAssignment()
         {
-            //Still Needed
+            string loadCourseLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt";
+            string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFIleBackups/tempFile.txt";
+
+            //For this to be correct with the database, we consistently need to update the DB as we make changes.
+            //Might want to to make the update function a private function, and place it into each setter
+
+            using (var sr = new StreamReader(loadCourseLocation))
+            using (var sw = new StreamWriter(tempFile))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != this.saveString)
+                    {
+                        //If line isn't the one that needs to be updated, then no revision needed
+                        sw.WriteLine(line);
+                    }
+                    else
+                    {
+                        //If line is the one that needs to be updated, then create revision
+                        resetSaveInfo();
+                        sw.WriteLine(saveString);
+                    }
+                }
+            }
+            //Removes content in Score Location
+            File.Delete(loadCourseLocation);
+            //Transfers temp content into Score Location
+            File.Copy(tempFile, loadCourseLocation);
+            //Removes content in tempFile
+            File.WriteAllText(tempFile, string.Empty);
         }
     }
 }

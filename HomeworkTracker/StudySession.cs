@@ -42,6 +42,7 @@ namespace HomeworkTracker
         {
             return this.validSession;
         }
+
         //setter methods
         public void setSessionName(string newSessionName)
         {
