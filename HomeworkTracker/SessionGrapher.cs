@@ -11,11 +11,13 @@ namespace HomeworkTracker
         //variables
         private string sessionGrapherName;
         private string sessionTrendSeries;
+
         //default constructor
         public SessionGrapher()
         {
 
         }
+
         //getter methods
         public string getSessionTrendName()
         {
@@ -26,6 +28,7 @@ namespace HomeworkTracker
         {
             return this.sessionTrendSeries;
         }
+
         //setter methods
         public void setSessionTrendName(string newTrendName)
         {
@@ -36,6 +39,7 @@ namespace HomeworkTracker
         {
             this.sessionTrendSeries = newSeriesName;
         }
+
         //generate graph
         public void generateGraph(int graphType)
         {

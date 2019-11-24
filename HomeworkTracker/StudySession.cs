@@ -10,8 +10,9 @@ namespace HomeworkTracker
     {
         //variables
         private string sessionName;
-        private TimeSpan studyTime;
-        private string studyCourse;
+        private TimeSpan timeStudied;
+        private TimeSpan sessionTime;
+        private int studyCourse;
         private bool validSession;
         // default constructor
         public StudySession() { }
@@ -22,12 +23,17 @@ namespace HomeworkTracker
             return this.sessionName;
         }
 
-        public TimeSpan getStudyTime()
+        public TimeSpan getTimeStudied()
         {
-            return this.studyTime;
+            return this.timeStudied;
         }
 
-        public string getStudyCourse()
+        public TimeSpan getSessionTime()
+        {
+            return this.sessionTime;
+        }
+
+        public int getStudyCourse()
         {
             return this.studyCourse;
         }
@@ -36,18 +42,24 @@ namespace HomeworkTracker
         {
             return this.validSession;
         }
+
         //setter methods
         public void setSessionName(string newSessionName)
         {
             this.sessionName = newSessionName;
         }
 
-        public void setStudyTime(TimeSpan newStudyTime)
+        public void setTimeStudied(TimeSpan newStudyTime)
         {
-            this.studyTime = newStudyTime;
+            this.timeStudied = newStudyTime;
         }
 
-        public void setStudyCourse(string newStudyCourse)
+        public void setSessionTime(TimeSpan time)
+        {
+            this.sessionTime = time;
+        }
+
+        public void setStudyCourse(int newStudyCourse)
         {
             this.studyCourse = newStudyCourse;
         }

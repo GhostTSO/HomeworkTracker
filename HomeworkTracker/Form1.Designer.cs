@@ -84,6 +84,17 @@
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
+            this.StudySessionOverlayPanel = new System.Windows.Forms.Panel();
+            this.StudySessionTitlePanel = new System.Windows.Forms.Panel();
+            this.StudySessionTitleLabel = new System.Windows.Forms.Label();
+            this.StudySessionPanel = new System.Windows.Forms.Panel();
+            this.StudySessionStateButton = new System.Windows.Forms.Button();
+            this.StudySessionLengthDropdown = new System.Windows.Forms.ComboBox();
+            this.StudySessionLengthLabel = new System.Windows.Forms.Label();
+            this.StudySessionTimeLabel = new System.Windows.Forms.Label();
+            this.StudySessionCourseDropDown = new System.Windows.Forms.ComboBox();
+            this.StudySessionCourseLabel = new System.Windows.Forms.Label();
+            this.StudySessionCloseButton = new System.Windows.Forms.Button();
             this.NotificationPanel = new System.Windows.Forms.Panel();
             this.NotificationsCloseButton = new System.Windows.Forms.Button();
             this.NotificationsInternalPanel = new System.Windows.Forms.Panel();
@@ -91,6 +102,7 @@
             this.NotificationsTitle = new System.Windows.Forms.Label();
             this.HomeworkPanel = new System.Windows.Forms.Panel();
             this.NotificationsTimer = new System.Windows.Forms.Timer(this.components);
+            this.StudySessionTimer = new System.Windows.Forms.Timer(this.components);
             this.SortPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.CompletedTitlePanel.SuspendLayout();
@@ -100,6 +112,9 @@
             this.AddAssignmentPanel.SuspendLayout();
             this.DeletePanel.SuspendLayout();
             this.BackgroundPanel.SuspendLayout();
+            this.StudySessionOverlayPanel.SuspendLayout();
+            this.StudySessionTitlePanel.SuspendLayout();
+            this.StudySessionPanel.SuspendLayout();
             this.NotificationPanel.SuspendLayout();
             this.NotificationsInternalPanel.SuspendLayout();
             this.SuspendLayout();
@@ -186,6 +201,7 @@
             this.StudyTrendsButton.TabIndex = 13;
             this.StudyTrendsButton.Text = "View Study Trends";
             this.StudyTrendsButton.UseVisualStyleBackColor = true;
+            this.StudyTrendsButton.Click += new System.EventHandler(this.StudyTrendsButton_Click);
             // 
             // StartStudyButton
             // 
@@ -196,6 +212,7 @@
             this.StartStudyButton.TabIndex = 14;
             this.StartStudyButton.Text = "Start Study Session";
             this.StartStudyButton.UseVisualStyleBackColor = true;
+            this.StartStudyButton.Click += new System.EventHandler(this.StartStudyButton_Click);
             // 
             // RefreshButton
             // 
@@ -217,6 +234,7 @@
             this.NotificationButton.TabIndex = 16;
             this.NotificationButton.Text = "Notification";
             this.NotificationButton.UseVisualStyleBackColor = true;
+            this.NotificationButton.Click += new System.EventHandler(this.NotificationButton_Click);
             // 
             // CustomizeButton
             // 
@@ -406,7 +424,7 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddCoursePanel.Location = new System.Drawing.Point(670, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(2010, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
@@ -508,7 +526,7 @@
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(0, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
             this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
@@ -639,7 +657,7 @@
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
             this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DeletePanel.Location = new System.Drawing.Point(1340, 0);
+            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(670, 685);
             this.DeletePanel.TabIndex = 11;
@@ -715,10 +733,10 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackgroundPanel.Controls.Add(this.NotificationPanel);
-            this.BackgroundPanel.Controls.Add(this.DeletePanel);
             this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
+            this.BackgroundPanel.Controls.Add(this.NotificationPanel);
+            this.BackgroundPanel.Controls.Add(this.DeletePanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
@@ -729,10 +747,142 @@
             this.BackgroundPanel.Controls.Add(this.CompletedTitlePanel);
             this.BackgroundPanel.Controls.Add(this.EditPanel);
             this.BackgroundPanel.Controls.Add(this.CompletedPanel);
+            this.BackgroundPanel.Controls.Add(this.StudySessionOverlayPanel);
             this.BackgroundPanel.Location = new System.Drawing.Point(0, 0);
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
             this.BackgroundPanel.TabIndex = 23;
+            // 
+            // StudySessionOverlayPanel
+            // 
+            this.StudySessionOverlayPanel.Controls.Add(this.StudySessionTitlePanel);
+            this.StudySessionOverlayPanel.Controls.Add(this.StudySessionPanel);
+            this.StudySessionOverlayPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.StudySessionOverlayPanel.Location = new System.Drawing.Point(0, 0);
+            this.StudySessionOverlayPanel.Name = "StudySessionOverlayPanel";
+            this.StudySessionOverlayPanel.Size = new System.Drawing.Size(1210, 685);
+            this.StudySessionOverlayPanel.TabIndex = 24;
+            this.StudySessionOverlayPanel.Visible = false;
+            // 
+            // StudySessionTitlePanel
+            // 
+            this.StudySessionTitlePanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.BackingBlue;
+            this.StudySessionTitlePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StudySessionTitlePanel.Controls.Add(this.StudySessionTitleLabel);
+            this.StudySessionTitlePanel.Location = new System.Drawing.Point(53, 31);
+            this.StudySessionTitlePanel.Name = "StudySessionTitlePanel";
+            this.StudySessionTitlePanel.Size = new System.Drawing.Size(1090, 54);
+            this.StudySessionTitlePanel.TabIndex = 1;
+            // 
+            // StudySessionTitleLabel
+            // 
+            this.StudySessionTitleLabel.AutoSize = true;
+            this.StudySessionTitleLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.StudySessionTitleLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.StudySessionTitleLabel.Location = new System.Drawing.Point(451, 13);
+            this.StudySessionTitleLabel.Name = "StudySessionTitleLabel";
+            this.StudySessionTitleLabel.Size = new System.Drawing.Size(209, 32);
+            this.StudySessionTitleLabel.TabIndex = 1;
+            this.StudySessionTitleLabel.Text = "Study Session";
+            // 
+            // StudySessionPanel
+            // 
+            this.StudySessionPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.PanelBlue;
+            this.StudySessionPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StudySessionPanel.Controls.Add(this.StudySessionStateButton);
+            this.StudySessionPanel.Controls.Add(this.StudySessionLengthDropdown);
+            this.StudySessionPanel.Controls.Add(this.StudySessionLengthLabel);
+            this.StudySessionPanel.Controls.Add(this.StudySessionTimeLabel);
+            this.StudySessionPanel.Controls.Add(this.StudySessionCourseDropDown);
+            this.StudySessionPanel.Controls.Add(this.StudySessionCourseLabel);
+            this.StudySessionPanel.Controls.Add(this.StudySessionCloseButton);
+            this.StudySessionPanel.Location = new System.Drawing.Point(53, 82);
+            this.StudySessionPanel.Name = "StudySessionPanel";
+            this.StudySessionPanel.Size = new System.Drawing.Size(1090, 549);
+            this.StudySessionPanel.TabIndex = 0;
+            // 
+            // StudySessionStateButton
+            // 
+            this.StudySessionStateButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionStateButton.Location = new System.Drawing.Point(52, 225);
+            this.StudySessionStateButton.Name = "StudySessionStateButton";
+            this.StudySessionStateButton.Size = new System.Drawing.Size(275, 125);
+            this.StudySessionStateButton.TabIndex = 7;
+            this.StudySessionStateButton.Text = "Start Session";
+            this.StudySessionStateButton.UseVisualStyleBackColor = true;
+            this.StudySessionStateButton.Click += new System.EventHandler(this.SessionStateButton_Click);
+            // 
+            // StudySessionLengthDropdown
+            // 
+            this.StudySessionLengthDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StudySessionLengthDropdown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionLengthDropdown.FormattingEnabled = true;
+            this.StudySessionLengthDropdown.Items.AddRange(new object[] {
+            "15 Min",
+            "30 Min",
+            "45 Min",
+            "1 Hour",
+            "1 1/2 Hours",
+            "2 Hours"});
+            this.StudySessionLengthDropdown.Location = new System.Drawing.Point(737, 54);
+            this.StudySessionLengthDropdown.Name = "StudySessionLengthDropdown";
+            this.StudySessionLengthDropdown.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StudySessionLengthDropdown.Size = new System.Drawing.Size(304, 66);
+            this.StudySessionLengthDropdown.TabIndex = 6;
+            this.StudySessionLengthDropdown.SelectedIndexChanged += new System.EventHandler(this.StudySessionLengthDropdown_SelectedIndexChanged);
+            // 
+            // StudySessionLengthLabel
+            // 
+            this.StudySessionLengthLabel.AutoSize = true;
+            this.StudySessionLengthLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionLengthLabel.Location = new System.Drawing.Point(520, 54);
+            this.StudySessionLengthLabel.Name = "StudySessionLengthLabel";
+            this.StudySessionLengthLabel.Size = new System.Drawing.Size(194, 58);
+            this.StudySessionLengthLabel.TabIndex = 5;
+            this.StudySessionLengthLabel.Text = "Length";
+            // 
+            // StudySessionTimeLabel
+            // 
+            this.StudySessionTimeLabel.AutoSize = true;
+            this.StudySessionTimeLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 80F);
+            this.StudySessionTimeLabel.Location = new System.Drawing.Point(375, 294);
+            this.StudySessionTimeLabel.Name = "StudySessionTimeLabel";
+            this.StudySessionTimeLabel.Size = new System.Drawing.Size(629, 155);
+            this.StudySessionTimeLabel.TabIndex = 4;
+            this.StudySessionTimeLabel.Text = "00:00:00";
+            // 
+            // StudySessionCourseDropDown
+            // 
+            this.StudySessionCourseDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StudySessionCourseDropDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionCourseDropDown.FormattingEnabled = true;
+            this.StudySessionCourseDropDown.Location = new System.Drawing.Point(226, 53);
+            this.StudySessionCourseDropDown.Name = "StudySessionCourseDropDown";
+            this.StudySessionCourseDropDown.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StudySessionCourseDropDown.Size = new System.Drawing.Size(230, 66);
+            this.StudySessionCourseDropDown.TabIndex = 3;
+            this.StudySessionCourseDropDown.SelectedIndexChanged += new System.EventHandler(this.StudySessionCourseDropDown_SelectedIndexChanged);
+            // 
+            // StudySessionCourseLabel
+            // 
+            this.StudySessionCourseLabel.AutoSize = true;
+            this.StudySessionCourseLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionCourseLabel.Location = new System.Drawing.Point(11, 54);
+            this.StudySessionCourseLabel.Name = "StudySessionCourseLabel";
+            this.StudySessionCourseLabel.Size = new System.Drawing.Size(201, 58);
+            this.StudySessionCourseLabel.TabIndex = 2;
+            this.StudySessionCourseLabel.Text = "Course";
+            // 
+            // StudySessionCloseButton
+            // 
+            this.StudySessionCloseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 30F);
+            this.StudySessionCloseButton.Location = new System.Drawing.Point(52, 383);
+            this.StudySessionCloseButton.Name = "StudySessionCloseButton";
+            this.StudySessionCloseButton.Size = new System.Drawing.Size(275, 125);
+            this.StudySessionCloseButton.TabIndex = 0;
+            this.StudySessionCloseButton.Text = "Close Session";
+            this.StudySessionCloseButton.UseVisualStyleBackColor = true;
+            this.StudySessionCloseButton.Click += new System.EventHandler(this.StudySessionCloseButton_Click);
             // 
             // NotificationPanel
             // 
@@ -740,7 +890,7 @@
             this.NotificationPanel.Controls.Add(this.NotificationsInternalPanel);
             this.NotificationPanel.Controls.Add(this.NotificationsTitle);
             this.NotificationPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NotificationPanel.Location = new System.Drawing.Point(2010, 0);
+            this.NotificationPanel.Location = new System.Drawing.Point(670, 0);
             this.NotificationPanel.Name = "NotificationPanel";
             this.NotificationPanel.Size = new System.Drawing.Size(670, 685);
             this.NotificationPanel.TabIndex = 23;
@@ -772,9 +922,9 @@
             this.NotificationsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             this.NotificationsLabel.Location = new System.Drawing.Point(17, 23);
             this.NotificationsLabel.Name = "NotificationsLabel";
-            this.NotificationsLabel.Size = new System.Drawing.Size(272, 32);
+            this.NotificationsLabel.Size = new System.Drawing.Size(87, 32);
             this.NotificationsLabel.TabIndex = 2;
-            this.NotificationsLabel.Text = "Select Assignment";
+            this.NotificationsLabel.Text = "None";
             // 
             // NotificationsTitle
             // 
@@ -804,6 +954,11 @@
             this.NotificationsTimer.Interval = 5000;
             this.NotificationsTimer.Tick += new System.EventHandler(this.NotificationsTimer_Tick);
             // 
+            // StudySessionTimer
+            // 
+            this.StudySessionTimer.Interval = 1000;
+            this.StudySessionTimer.Tick += new System.EventHandler(this.StudySessionTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -832,6 +987,11 @@
             this.DeletePanel.ResumeLayout(false);
             this.DeletePanel.PerformLayout();
             this.BackgroundPanel.ResumeLayout(false);
+            this.StudySessionOverlayPanel.ResumeLayout(false);
+            this.StudySessionTitlePanel.ResumeLayout(false);
+            this.StudySessionTitlePanel.PerformLayout();
+            this.StudySessionPanel.ResumeLayout(false);
+            this.StudySessionPanel.PerformLayout();
             this.NotificationPanel.ResumeLayout(false);
             this.NotificationPanel.PerformLayout();
             this.NotificationsInternalPanel.ResumeLayout(false);
@@ -903,6 +1063,18 @@
         private System.Windows.Forms.Panel NotificationsInternalPanel;
         private System.Windows.Forms.Label NotificationsLabel;
         private System.Windows.Forms.Label NotificationsTitle;
+        private System.Windows.Forms.Panel StudySessionOverlayPanel;
+        private System.Windows.Forms.Panel StudySessionTitlePanel;
+        private System.Windows.Forms.Label StudySessionTitleLabel;
+        private System.Windows.Forms.Panel StudySessionPanel;
+        private System.Windows.Forms.Button StudySessionStateButton;
+        private System.Windows.Forms.ComboBox StudySessionLengthDropdown;
+        private System.Windows.Forms.Label StudySessionLengthLabel;
+        private System.Windows.Forms.Label StudySessionTimeLabel;
+        private System.Windows.Forms.ComboBox StudySessionCourseDropDown;
+        private System.Windows.Forms.Label StudySessionCourseLabel;
+        private System.Windows.Forms.Button StudySessionCloseButton;
+        private System.Windows.Forms.Timer StudySessionTimer;
     }
 }
 
