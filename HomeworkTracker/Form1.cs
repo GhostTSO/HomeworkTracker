@@ -15,6 +15,7 @@ namespace HomeworkTracker
     {
         private List<Course> courses = new List<Course>();
         Notifications notifications = new Notifications();
+        StudySession studySession = new StudySession();
         public MainForm()
         {
             InitializeComponent();
@@ -332,6 +333,104 @@ namespace HomeworkTracker
         private void NotificationsCloseButton_Click(object sender, EventArgs e)
         {
             this.NotificationPanel.Visible = false;
+        }
+
+        private void NotificationButton_Click(object sender, EventArgs e)
+        {
+            this.NotificationPanel.Visible = true;
+        }
+
+        private void StartStudyButton_Click(object sender, EventArgs e)
+        {
+            this.StudySessionCourseDropDown.Items.Clear();
+            foreach(Course course in courses)
+            {
+                this.StudySessionCourseDropDown.Items.Add(course.getCourseID());
+            }
+            this.StudySessionCourseDropDown.SelectedIndex = this.studySession.getStudyCourse();
+
+            this.StudySessionOverlayPanel.BringToFront();
+            this.StudySessionOverlayPanel.Visible = true;
+        }
+
+        private void StudyTrendsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StudySessionCloseButton_Click(object sender, EventArgs e)
+        {
+            if(this.StudySessionStateButton.Text == "Confirm Session")
+            {
+                this.StudySessionStateButton.Text = "Start Session";
+                this.StudySessionLengthDropdown.SelectedIndex = -1;
+            }
+            this.StudySessionOverlayPanel.SendToBack();
+            this.StudySessionOverlayPanel.Visible = false;
+        }
+
+        private void SessionStateButton_Click(object sender, EventArgs e)
+        {
+            if (this.StudySessionCourseDropDown.SelectedIndex != -1 && this.StudySessionLengthDropdown.SelectedIndex != -1 && this.StudySessionStateButton.Text == "Start Session")
+            {
+                this.StudySessionTimer.Start();
+                this.StudySessionStateButton.Text = "End Session";
+            }
+            else if(this.StudySessionStateButton.Text == "End Session")
+            {
+                this.StudySessionTimer.Stop();
+                this.StudySessionStateButton.Text = "Confirm Session";
+            }else if(this.StudySessionStateButton.Text == "Confirm Session")
+            {
+                this.courses.ElementAt(this.StudySessionCourseDropDown.SelectedIndex).addStudyTime(studySession.getTimeStudied());
+                this.StudySessionStateButton.Text = "Start Session";
+                this.StudySessionCourseDropDown.SelectedIndex = -1;
+                this.StudySessionLengthDropdown.SelectedIndex = -1;
+                this.StudySessionTimeLabel.Text = "00:00:00";
+            }
+        }
+
+        private void StudySessionLengthDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(this.StudySessionLengthDropdown.SelectedIndex){
+                case 0:
+                    this.studySession.setSessionTime(new TimeSpan(0, 15, 0));
+                    break;
+                case 1:
+                    this.studySession.setSessionTime(new TimeSpan(0, 30, 0));
+                    break;
+                case 2:
+                    this.studySession.setSessionTime(new TimeSpan(0, 45, 0));
+                    break;
+                case 3:
+                    this.studySession.setSessionTime(new TimeSpan(1, 0, 0));
+                    break;
+                case 4:
+                    this.studySession.setSessionTime(new TimeSpan(1, 30, 0));
+                    break;
+                case 5:
+                    this.studySession.setSessionTime(new TimeSpan(2, 0, 0));
+                    break;
+            }
+
+            this.studySession.setTimeStudied(new TimeSpan(0,0,0));
+            this.StudySessionTimeLabel.Text = (this.studySession.getSessionTime() - this.studySession.getTimeStudied()).ToString();
+        }
+
+        private void StudySessionTimer_Tick(object sender, EventArgs e)
+        {
+            this.studySession.setTimeStudied(this.studySession.getTimeStudied()+ new System.TimeSpan(0,0,1));
+            this.StudySessionTimeLabel.Text = (this.studySession.getSessionTime() - this.studySession.getTimeStudied()).ToString();
+            if(this.studySession.getSessionTime() <= this.studySession.getTimeStudied())
+            {
+                this.StudySessionStateButton.Text = "Confirm Session";
+                this.StudySessionTimer.Stop();
+            }
+        }
+
+        private void StudySessionCourseDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.studySession.setStudyCourse(this.CourseDropDown.SelectedIndex);
         }
     }
 }

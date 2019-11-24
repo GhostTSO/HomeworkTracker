@@ -123,7 +123,7 @@ namespace HomeworkTracker
         //Modifiers to accumulate studyTime and to add/remove Assingments
         public void addStudyTime(TimeSpan additionalTime)
         {
-            this.studyTime.Add(additionalTime);
+            this.studyTime += additionalTime;
         }
 
         public void addAssignment(Assignment newAssingment)
