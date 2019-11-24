@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
@@ -84,6 +88,9 @@
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
+            this.SessionTrendsPanel = new System.Windows.Forms.Panel();
+            this.StudyTrendsCloseButton = new System.Windows.Forms.Button();
+            this.SessionTrendsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.StudySessionOverlayPanel = new System.Windows.Forms.Panel();
             this.StudySessionTitlePanel = new System.Windows.Forms.Panel();
             this.StudySessionTitleLabel = new System.Windows.Forms.Label();
@@ -112,6 +119,8 @@
             this.AddAssignmentPanel.SuspendLayout();
             this.DeletePanel.SuspendLayout();
             this.BackgroundPanel.SuspendLayout();
+            this.SessionTrendsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).BeginInit();
             this.StudySessionOverlayPanel.SuspendLayout();
             this.StudySessionTitlePanel.SuspendLayout();
             this.StudySessionPanel.SuspendLayout();
@@ -424,7 +433,7 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddCoursePanel.Location = new System.Drawing.Point(2010, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(1340, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
@@ -526,7 +535,7 @@
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentDPointLabel);
             this.AddAssignmentPanel.Controls.Add(this.AddAssignmentAssignmentNameLabel);
             this.AddAssignmentPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddAssignmentPanel.Location = new System.Drawing.Point(1340, 0);
+            this.AddAssignmentPanel.Location = new System.Drawing.Point(670, 0);
             this.AddAssignmentPanel.Name = "AddAssignmentPanel";
             this.AddAssignmentPanel.Size = new System.Drawing.Size(670, 685);
             this.AddAssignmentPanel.TabIndex = 22;
@@ -733,9 +742,10 @@
             this.BackgroundPanel.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundPanel.BackgroundImage = global::HomeworkTracker.Properties.Resources.DarkenedBlue;
             this.BackgroundPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundPanel.Controls.Add(this.StudySessionOverlayPanel);
+            this.BackgroundPanel.Controls.Add(this.NotificationPanel);
             this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
-            this.BackgroundPanel.Controls.Add(this.NotificationPanel);
             this.BackgroundPanel.Controls.Add(this.DeletePanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
@@ -747,20 +757,62 @@
             this.BackgroundPanel.Controls.Add(this.CompletedTitlePanel);
             this.BackgroundPanel.Controls.Add(this.EditPanel);
             this.BackgroundPanel.Controls.Add(this.CompletedPanel);
-            this.BackgroundPanel.Controls.Add(this.StudySessionOverlayPanel);
+            this.BackgroundPanel.Controls.Add(this.SessionTrendsPanel);
             this.BackgroundPanel.Location = new System.Drawing.Point(0, 0);
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
             this.BackgroundPanel.TabIndex = 23;
+            // 
+            // SessionTrendsPanel
+            // 
+            this.SessionTrendsPanel.Controls.Add(this.StudyTrendsCloseButton);
+            this.SessionTrendsPanel.Controls.Add(this.SessionTrendsChart);
+            this.SessionTrendsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SessionTrendsPanel.Location = new System.Drawing.Point(10, 0);
+            this.SessionTrendsPanel.Name = "SessionTrendsPanel";
+            this.SessionTrendsPanel.Size = new System.Drawing.Size(1200, 685);
+            this.SessionTrendsPanel.TabIndex = 25;
+            this.SessionTrendsPanel.Visible = false;
+            // 
+            // StudyTrendsCloseButton
+            // 
+            this.StudyTrendsCloseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.StudyTrendsCloseButton.Location = new System.Drawing.Point(57, 519);
+            this.StudyTrendsCloseButton.Name = "StudyTrendsCloseButton";
+            this.StudyTrendsCloseButton.Size = new System.Drawing.Size(237, 83);
+            this.StudyTrendsCloseButton.TabIndex = 15;
+            this.StudyTrendsCloseButton.Text = "Close Study Trends";
+            this.StudyTrendsCloseButton.UseVisualStyleBackColor = true;
+            this.StudyTrendsCloseButton.Click += new System.EventHandler(this.StudyTrendsCloseButton_Click);
+            // 
+            // SessionTrendsChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.SessionTrendsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.SessionTrendsChart.Legends.Add(legend1);
+            this.SessionTrendsChart.Location = new System.Drawing.Point(71, 44);
+            this.SessionTrendsChart.Name = "SessionTrendsChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.SessionTrendsChart.Series.Add(series1);
+            this.SessionTrendsChart.Size = new System.Drawing.Size(1080, 450);
+            this.SessionTrendsChart.TabIndex = 0;
+            this.SessionTrendsChart.Text = "Session Trends";
+            title1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            title1.Name = "ChartTitle";
+            title1.Text = "Study Trends";
+            this.SessionTrendsChart.Titles.Add(title1);
             // 
             // StudySessionOverlayPanel
             // 
             this.StudySessionOverlayPanel.Controls.Add(this.StudySessionTitlePanel);
             this.StudySessionOverlayPanel.Controls.Add(this.StudySessionPanel);
             this.StudySessionOverlayPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.StudySessionOverlayPanel.Location = new System.Drawing.Point(0, 0);
+            this.StudySessionOverlayPanel.Location = new System.Drawing.Point(-1190, 0);
             this.StudySessionOverlayPanel.Name = "StudySessionOverlayPanel";
-            this.StudySessionOverlayPanel.Size = new System.Drawing.Size(1210, 685);
+            this.StudySessionOverlayPanel.Size = new System.Drawing.Size(1200, 685);
             this.StudySessionOverlayPanel.TabIndex = 24;
             this.StudySessionOverlayPanel.Visible = false;
             // 
@@ -890,7 +942,7 @@
             this.NotificationPanel.Controls.Add(this.NotificationsInternalPanel);
             this.NotificationPanel.Controls.Add(this.NotificationsTitle);
             this.NotificationPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NotificationPanel.Location = new System.Drawing.Point(670, 0);
+            this.NotificationPanel.Location = new System.Drawing.Point(2010, 0);
             this.NotificationPanel.Name = "NotificationPanel";
             this.NotificationPanel.Size = new System.Drawing.Size(670, 685);
             this.NotificationPanel.TabIndex = 23;
@@ -987,6 +1039,8 @@
             this.DeletePanel.ResumeLayout(false);
             this.DeletePanel.PerformLayout();
             this.BackgroundPanel.ResumeLayout(false);
+            this.SessionTrendsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).EndInit();
             this.StudySessionOverlayPanel.ResumeLayout(false);
             this.StudySessionTitlePanel.ResumeLayout(false);
             this.StudySessionTitlePanel.PerformLayout();
@@ -1075,6 +1129,9 @@
         private System.Windows.Forms.Label StudySessionCourseLabel;
         private System.Windows.Forms.Button StudySessionCloseButton;
         private System.Windows.Forms.Timer StudySessionTimer;
+        private System.Windows.Forms.Panel SessionTrendsPanel;
+        private System.Windows.Forms.Button StudyTrendsCloseButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart SessionTrendsChart;
     }
 }
 

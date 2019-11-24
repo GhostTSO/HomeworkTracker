@@ -355,7 +355,20 @@ namespace HomeworkTracker
 
         private void StudyTrendsButton_Click(object sender, EventArgs e)
         {
+            this.SessionTrendsPanel.BringToFront();
+            this.SessionTrendsChart.Series.Clear();
+            this.SessionTrendsChart.Series.Add("Courses");
+            this.SessionTrendsChart.ChartAreas[0].AxisX.Title = "Courses";
+            this.SessionTrendsChart.ChartAreas[0].AxisY.Title = "Hours";
+            this.SessionTrendsChart.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
+            this.SessionTrendsChart.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial Rounded MT Bold", 16F);
+            foreach (Course course in courses)
+            {
+                this.SessionTrendsChart.Series["Courses"].Points.AddXY(course.getCourseID(), course.getStudyTime().TotalHours);
+                Console.WriteLine(course.getStudyTime().TotalHours);
 
+            }
+            this.SessionTrendsPanel.Visible = true;
         }
 
         private void StudySessionCloseButton_Click(object sender, EventArgs e)
@@ -431,6 +444,12 @@ namespace HomeworkTracker
         private void StudySessionCourseDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.studySession.setStudyCourse(this.CourseDropDown.SelectedIndex);
+        }
+
+        private void StudyTrendsCloseButton_Click(object sender, EventArgs e)
+        {
+            this.SessionTrendsPanel.Visible = false;
+            this.SessionTrendsPanel.SendToBack();
         }
     }
 }
