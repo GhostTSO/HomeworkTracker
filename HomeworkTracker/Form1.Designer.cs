@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
@@ -88,9 +89,6 @@
             this.DeleteAssignmentLabel = new System.Windows.Forms.Label();
             this.DeleteCourseLabel = new System.Windows.Forms.Label();
             this.BackgroundPanel = new System.Windows.Forms.Panel();
-            this.SessionTrendsPanel = new System.Windows.Forms.Panel();
-            this.StudyTrendsCloseButton = new System.Windows.Forms.Button();
-            this.SessionTrendsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.StudySessionOverlayPanel = new System.Windows.Forms.Panel();
             this.StudySessionTitlePanel = new System.Windows.Forms.Panel();
             this.StudySessionTitleLabel = new System.Windows.Forms.Label();
@@ -108,6 +106,9 @@
             this.NotificationsLabel = new System.Windows.Forms.Label();
             this.NotificationsTitle = new System.Windows.Forms.Label();
             this.HomeworkPanel = new System.Windows.Forms.Panel();
+            this.SessionTrendsPanel = new System.Windows.Forms.Panel();
+            this.StudyTrendsCloseButton = new System.Windows.Forms.Button();
+            this.SessionTrendsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.NotificationsTimer = new System.Windows.Forms.Timer(this.components);
             this.StudySessionTimer = new System.Windows.Forms.Timer(this.components);
             this.SortPanel.SuspendLayout();
@@ -119,13 +120,13 @@
             this.AddAssignmentPanel.SuspendLayout();
             this.DeletePanel.SuspendLayout();
             this.BackgroundPanel.SuspendLayout();
-            this.SessionTrendsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).BeginInit();
             this.StudySessionOverlayPanel.SuspendLayout();
             this.StudySessionTitlePanel.SuspendLayout();
             this.StudySessionPanel.SuspendLayout();
             this.NotificationPanel.SuspendLayout();
             this.NotificationsInternalPanel.SuspendLayout();
+            this.SessionTrendsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).BeginInit();
             this.SuspendLayout();
             // 
             // CompletedPanel
@@ -763,48 +764,6 @@
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
             this.BackgroundPanel.TabIndex = 23;
             // 
-            // SessionTrendsPanel
-            // 
-            this.SessionTrendsPanel.Controls.Add(this.StudyTrendsCloseButton);
-            this.SessionTrendsPanel.Controls.Add(this.SessionTrendsChart);
-            this.SessionTrendsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SessionTrendsPanel.Location = new System.Drawing.Point(10, 0);
-            this.SessionTrendsPanel.Name = "SessionTrendsPanel";
-            this.SessionTrendsPanel.Size = new System.Drawing.Size(1200, 685);
-            this.SessionTrendsPanel.TabIndex = 25;
-            this.SessionTrendsPanel.Visible = false;
-            // 
-            // StudyTrendsCloseButton
-            // 
-            this.StudyTrendsCloseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            this.StudyTrendsCloseButton.Location = new System.Drawing.Point(57, 519);
-            this.StudyTrendsCloseButton.Name = "StudyTrendsCloseButton";
-            this.StudyTrendsCloseButton.Size = new System.Drawing.Size(237, 83);
-            this.StudyTrendsCloseButton.TabIndex = 15;
-            this.StudyTrendsCloseButton.Text = "Close Study Trends";
-            this.StudyTrendsCloseButton.UseVisualStyleBackColor = true;
-            this.StudyTrendsCloseButton.Click += new System.EventHandler(this.StudyTrendsCloseButton_Click);
-            // 
-            // SessionTrendsChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.SessionTrendsChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.SessionTrendsChart.Legends.Add(legend1);
-            this.SessionTrendsChart.Location = new System.Drawing.Point(71, 44);
-            this.SessionTrendsChart.Name = "SessionTrendsChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.SessionTrendsChart.Series.Add(series1);
-            this.SessionTrendsChart.Size = new System.Drawing.Size(1080, 450);
-            this.SessionTrendsChart.TabIndex = 0;
-            this.SessionTrendsChart.Text = "Session Trends";
-            title1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            title1.Name = "ChartTitle";
-            title1.Text = "Study Trends";
-            this.SessionTrendsChart.Titles.Add(title1);
-            // 
             // StudySessionOverlayPanel
             // 
             this.StudySessionOverlayPanel.Controls.Add(this.StudySessionTitlePanel);
@@ -1000,6 +959,48 @@
             this.HomeworkPanel.Size = new System.Drawing.Size(885, 301);
             this.HomeworkPanel.TabIndex = 22;
             // 
+            // SessionTrendsPanel
+            // 
+            this.SessionTrendsPanel.Controls.Add(this.StudyTrendsCloseButton);
+            this.SessionTrendsPanel.Controls.Add(this.SessionTrendsChart);
+            this.SessionTrendsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SessionTrendsPanel.Location = new System.Drawing.Point(10, 0);
+            this.SessionTrendsPanel.Name = "SessionTrendsPanel";
+            this.SessionTrendsPanel.Size = new System.Drawing.Size(1200, 685);
+            this.SessionTrendsPanel.TabIndex = 25;
+            this.SessionTrendsPanel.Visible = false;
+            // 
+            // StudyTrendsCloseButton
+            // 
+            this.StudyTrendsCloseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            this.StudyTrendsCloseButton.Location = new System.Drawing.Point(57, 519);
+            this.StudyTrendsCloseButton.Name = "StudyTrendsCloseButton";
+            this.StudyTrendsCloseButton.Size = new System.Drawing.Size(237, 83);
+            this.StudyTrendsCloseButton.TabIndex = 15;
+            this.StudyTrendsCloseButton.Text = "Close Study Trends";
+            this.StudyTrendsCloseButton.UseVisualStyleBackColor = true;
+            this.StudyTrendsCloseButton.Click += new System.EventHandler(this.StudyTrendsCloseButton_Click);
+            // 
+            // SessionTrendsChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.SessionTrendsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.SessionTrendsChart.Legends.Add(legend1);
+            this.SessionTrendsChart.Location = new System.Drawing.Point(71, 44);
+            this.SessionTrendsChart.Name = "SessionTrendsChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.SessionTrendsChart.Series.Add(series1);
+            this.SessionTrendsChart.Size = new System.Drawing.Size(1080, 450);
+            this.SessionTrendsChart.TabIndex = 0;
+            this.SessionTrendsChart.Text = "Session Trends";
+            title1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            title1.Name = "ChartTitle";
+            title1.Text = "Study Trends";
+            this.SessionTrendsChart.Titles.Add(title1);
+            // 
             // NotificationsTimer
             // 
             this.NotificationsTimer.Enabled = true;
@@ -1018,6 +1019,7 @@
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1202, 678);
             this.Controls.Add(this.BackgroundPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1220, 725);
             this.MinimumSize = new System.Drawing.Size(1220, 725);
             this.Name = "MainForm";
@@ -1039,8 +1041,6 @@
             this.DeletePanel.ResumeLayout(false);
             this.DeletePanel.PerformLayout();
             this.BackgroundPanel.ResumeLayout(false);
-            this.SessionTrendsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).EndInit();
             this.StudySessionOverlayPanel.ResumeLayout(false);
             this.StudySessionTitlePanel.ResumeLayout(false);
             this.StudySessionTitlePanel.PerformLayout();
@@ -1050,6 +1050,8 @@
             this.NotificationPanel.PerformLayout();
             this.NotificationsInternalPanel.ResumeLayout(false);
             this.NotificationsInternalPanel.PerformLayout();
+            this.SessionTrendsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SessionTrendsChart)).EndInit();
             this.ResumeLayout(false);
 
         }
