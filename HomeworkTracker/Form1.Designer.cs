@@ -33,7 +33,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CompletedPanel = new System.Windows.Forms.Panel();
             this.CourseDropDown = new System.Windows.Forms.ComboBox();
             this.SortDropDown = new System.Windows.Forms.ComboBox();
@@ -1019,7 +1018,6 @@
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1202, 678);
             this.Controls.Add(this.BackgroundPanel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1220, 725);
             this.MinimumSize = new System.Drawing.Size(1220, 725);
             this.Name = "MainForm";
