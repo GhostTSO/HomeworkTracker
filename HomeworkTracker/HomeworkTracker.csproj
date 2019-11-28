@@ -103,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Capture.ico" />
+    <None Include="Resources\PrimaryOverlay.png" />
+    <None Include="Resources\SecondaryOverlay.png" />
+    <None Include="Resources\AccentOverlay.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

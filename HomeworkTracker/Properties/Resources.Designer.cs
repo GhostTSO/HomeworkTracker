@@ -63,6 +63,16 @@ namespace HomeworkTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AccentOverlay {
+            get {
+                object obj = ResourceManager.GetObject("AccentOverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BackingBlue {
             get {
                 object obj = ResourceManager.GetObject("BackingBlue", resourceCulture);
@@ -86,6 +96,26 @@ namespace HomeworkTracker.Properties {
         internal static System.Drawing.Bitmap PanelBlue {
             get {
                 object obj = ResourceManager.GetObject("PanelBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PrimaryOverlay {
+            get {
+                object obj = ResourceManager.GetObject("PrimaryOverlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SecondaryOverlay {
+            get {
+                object obj = ResourceManager.GetObject("SecondaryOverlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

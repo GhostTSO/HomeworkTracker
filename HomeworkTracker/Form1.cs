@@ -16,13 +16,25 @@ namespace HomeworkTracker
         private List<Course> courses = new List<Course>();
         Notifications notifications = new Notifications();
         StudySession studySession = new StudySession();
+        DisplayThemes themes;
         public MainForm()
         {
             InitializeComponent();
             loadInfo();
+            themes = new DisplayThemes(0, 80, 255, "Default");
+            addColorChoices();
+            UpdateAssignmentDisplay();
         }
 
-        
+        private void addColorChoices()
+        {
+            foreach(Button button in themes.getColorButtons())
+            {
+                this.CustomizationPanel.Controls.Add(button);
+            }
+        }
+
+
         //Event handling Confirmed Add Course Button being clicked
         private void AddCourseConfirmButton_Click(object sender, EventArgs e)
         {
@@ -151,7 +163,14 @@ namespace HomeworkTracker
         //This method is to update the display entirely
         private void UpdateAssignmentDisplay()
         {
-
+            this.BackColor = this.themes.getPrimaryColor();
+            this.SortPanel.BackColor = this.themes.getSecondaryColor();
+            this.EditPanel.BackColor = this.themes.getSecondaryColor();
+            this.StudyPanel.BackColor = this.themes.getSecondaryColor();
+            this.CompletedTitlePanel.BackColor = this.themes.getAccentColor();
+            this.HomeworkViewTitlePanel.BackColor = this.themes.getAccentColor();
+            this.StudySessionTitlePanel.BackColor = this.themes.getAccentColor();
+            this.StudySessionPanel.BackColor = this.themes.getAccentColor();
             this.HomeworkPanel.Controls.Clear();
             this.CompletedPanel.Controls.Clear();
             if (this.CourseDropDown.SelectedIndex > -1)
@@ -325,6 +344,7 @@ namespace HomeworkTracker
             if (!assignmentsDue.Equals(""))
             {
                 this.NotificationsLabel.Text = assignmentsDue;
+                this.NotificationPanel.BringToFront();
                 this.NotificationPanel.Visible = true;
                 UpdateAssignmentDisplay();
             }
@@ -450,6 +470,24 @@ namespace HomeworkTracker
         {
             this.SessionTrendsPanel.Visible = false;
             this.SessionTrendsPanel.SendToBack();
+        }
+
+        private void CustomizeButton_Click(object sender, EventArgs e)
+        {
+            this.CustomizationPanel.BringToFront();
+            this.CustomizationPanel.Visible = true;
+        }
+
+        private void CustomizationConfirmButton_Click(object sender, EventArgs e)
+        {
+            this.CustomizationPanel.SendToBack();
+            this.CustomizationPanel.Visible = false;
+            this.UpdateAssignmentDisplay();
+        }
+
+        private void CustomizationChangeThemeButton_Click(object sender, EventArgs e)
+        {
+            this.UpdateAssignmentDisplay();
         }
     }
 }
