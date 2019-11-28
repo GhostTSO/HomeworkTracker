@@ -113,6 +113,26 @@ namespace HomeworkTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SecondaryLayer {
+            get {
+                object obj = ResourceManager.GetObject("SecondaryLayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SecondaryLayer1 {
+            get {
+                object obj = ResourceManager.GetObject("SecondaryLayer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SecondaryOverlay {
             get {
                 object obj = ResourceManager.GetObject("SecondaryOverlay", resourceCulture);

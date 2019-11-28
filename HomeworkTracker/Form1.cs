@@ -179,7 +179,7 @@ namespace HomeworkTracker
                 {
                     if (assignment.getCompleted())
                     {
-                        int yPos = 45 * this.CompletedPanel.Controls.Count / 4 + 30;
+                        int yPos = 50 * this.CompletedPanel.Controls.Count / 4;
                         assignment.setAssignmentDisplayLabel(
                             new AssignmentDisplayLabel(
                                     assignment.getAssignmentName(),
@@ -197,7 +197,7 @@ namespace HomeworkTracker
                     else
                     {
                         
-                        int yPos = 45 * this.HomeworkPanel.Controls.Count / 4 + 30;
+                        int yPos = 50 * this.HomeworkPanel.Controls.Count / 4;
                         assignment.setAssignmentDisplayLabel(
                             new AssignmentDisplayLabel(
                                     assignment.getAssignmentName(),

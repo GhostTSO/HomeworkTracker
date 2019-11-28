@@ -103,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Capture.ico" />
+    <None Include="Resources\SecondaryLayer1.png" />
+    <None Include="Resources\SecondaryLayer.png" />
     <None Include="Resources\PrimaryOverlay.png" />
     <None Include="Resources\SecondaryOverlay.png" />
     <None Include="Resources\AccentOverlay.png" />

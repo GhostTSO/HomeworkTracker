@@ -24,21 +24,21 @@ namespace HomeworkTracker
             
             assignmentNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             assignmentNameLabel.Size = new System.Drawing.Size(200, 40);
-            assignmentNameLabel.Location = new System.Drawing.Point(110, yPos);
+            assignmentNameLabel.Location = new System.Drawing.Point(110, yPos+10);
             assignmentNameLabel.Text = assignmentName;
 
             courseNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            courseNameLabel.Size = new System.Drawing.Size(200, 40);
-            courseNameLabel.Location = new System.Drawing.Point(320, yPos);
+            courseNameLabel.Size = new System.Drawing.Size(150, 40);
+            courseNameLabel.Location = new System.Drawing.Point(320, yPos+10);
             courseNameLabel.Text = courseName;
 
             DateLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
             DateLabel.Size = new System.Drawing.Size(140, 40);
-            DateLabel.Location = new System.Drawing.Point(520, yPos);
+            DateLabel.Location = new System.Drawing.Point(500, yPos+10);
             DateLabel.Text = dueDate;
 
             completeButton.Size = new System.Drawing.Size(100, 40);
-            completeButton.Location = new System.Drawing.Point(0, yPos);
+            completeButton.Location = new System.Drawing.Point(0, yPos+5);
             completeButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
             completeButton.Text = "Complete?";
 
