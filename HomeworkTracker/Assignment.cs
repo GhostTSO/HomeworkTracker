@@ -196,8 +196,9 @@ namespace HomeworkTracker
 
             //For this to be correct with the database, we consistently need to update the DB as we make changes.
             //Might want to to make the update function a private function, and place it into each setter.
-            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6}",
-                this.assignmentName, this.course, this.description, this.pointValue, this.priority, this.dueDate, this.timeLeft);
+            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
+                this.assignmentName, this.course, this.description, this.pointValue,
+                this.priority, this.dueDate, this.timeLeft, this.completed);
 
             using (var sr = new StreamReader(assignmentsLocation))
             using (var sw = new StreamWriter(tempFile))
@@ -210,8 +211,9 @@ namespace HomeworkTracker
                 }
             }
 
-            File.Delete("file.txt");
-            File.Move(tempFile, "file.txt");
+            File.Delete(assignmentsLocation);
+            File.Move(tempFile, assignmentsLocation);
+            File.WriteAllText(tempFile, string.Empty);
         }
 
         //NEEDS TO BE TESTED

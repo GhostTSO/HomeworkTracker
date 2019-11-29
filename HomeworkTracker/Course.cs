@@ -170,12 +170,12 @@ namespace HomeworkTracker
         //NOT POINTING TO CORRECT FILE PATHS YET.
         public void deleteCourse()
         {
-            string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUps.txt";
+            string coursesLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
 
             resetSaveInfo();
 
-            using (var sr = new StreamReader(assignmentsLocation))
+            using (var sr = new StreamReader(coursesLocation))
             using (var sw = new StreamWriter(tempFile))
             {
                 string line;
@@ -185,9 +185,12 @@ namespace HomeworkTracker
                         sw.WriteLine(line);
                 }
             }
-
-            File.Delete("file.txt");
-            File.Move(tempFile, "file.txt");
+            //Removes content in Score Location
+            File.Delete(coursesLocation);
+            //Transfers temp content into Score Location
+            File.Copy(tempFile, coursesLocation);
+            //Removes content in tempFile
+            File.WriteAllText(tempFile, string.Empty);
         }
 
         //Need an Update Function when contents of assignment changes.
