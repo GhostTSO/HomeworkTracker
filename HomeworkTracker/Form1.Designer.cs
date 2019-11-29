@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.NotificationsTimer = new System.Windows.Forms.Timer(this.components);
             this.StudySessionTimer = new System.Windows.Forms.Timer(this.components);
             this.BackgroundPanel = new System.Windows.Forms.Panel();
@@ -151,8 +151,6 @@
             this.BackgroundPanel.Controls.Add(this.CustomizationPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationPanel);
             this.BackgroundPanel.Controls.Add(this.AddAssignmentPanel);
-            this.BackgroundPanel.Controls.Add(this.DeletePanel);
-            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
             this.BackgroundPanel.Controls.Add(this.HomeworkPanel);
             this.BackgroundPanel.Controls.Add(this.NotificationButton);
             this.BackgroundPanel.Controls.Add(this.CustomizeButton);
@@ -165,6 +163,8 @@
             this.BackgroundPanel.Controls.Add(this.CompletedPanel);
             this.BackgroundPanel.Controls.Add(this.SessionTrendsPanel);
             this.BackgroundPanel.Controls.Add(this.StudySessionOverlayPanel);
+            this.BackgroundPanel.Controls.Add(this.AddCoursePanel);
+            this.BackgroundPanel.Controls.Add(this.DeletePanel);
             this.BackgroundPanel.Location = new System.Drawing.Point(0, 0);
             this.BackgroundPanel.Name = "BackgroundPanel";
             this.BackgroundPanel.Size = new System.Drawing.Size(1210, 685);
@@ -408,7 +408,7 @@
             this.DeletePanel.Controls.Add(this.DeleteAssignmentLabel);
             this.DeletePanel.Controls.Add(this.DeleteCourseLabel);
             this.DeletePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DeletePanel.Location = new System.Drawing.Point(670, 0);
+            this.DeletePanel.Location = new System.Drawing.Point(0, 0);
             this.DeletePanel.Name = "DeletePanel";
             this.DeletePanel.Size = new System.Drawing.Size(760, 685);
             this.DeletePanel.TabIndex = 11;
@@ -493,7 +493,7 @@
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseShortTextbox);
             this.AddCoursePanel.Controls.Add(this.AddCourseCourseTexbox);
             this.AddCoursePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddCoursePanel.Location = new System.Drawing.Point(0, 0);
+            this.AddCoursePanel.Location = new System.Drawing.Point(760, 0);
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(670, 685);
             this.AddCoursePanel.TabIndex = 21;
@@ -896,9 +896,9 @@
             this.SessionTrendsPanel.Controls.Add(this.StudyTrendsCloseButton);
             this.SessionTrendsPanel.Controls.Add(this.SessionTrendsChart);
             this.SessionTrendsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SessionTrendsPanel.Location = new System.Drawing.Point(-30, 0);
+            this.SessionTrendsPanel.Location = new System.Drawing.Point(0, 0);
             this.SessionTrendsPanel.Name = "SessionTrendsPanel";
-            this.SessionTrendsPanel.Size = new System.Drawing.Size(20, 685);
+            this.SessionTrendsPanel.Size = new System.Drawing.Size(1200, 685);
             this.SessionTrendsPanel.TabIndex = 25;
             this.SessionTrendsPanel.Visible = false;
             // 
@@ -915,23 +915,23 @@
             // 
             // SessionTrendsChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.SessionTrendsChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.SessionTrendsChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.SessionTrendsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.SessionTrendsChart.Legends.Add(legend1);
             this.SessionTrendsChart.Location = new System.Drawing.Point(71, 44);
             this.SessionTrendsChart.Name = "SessionTrendsChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.SessionTrendsChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.SessionTrendsChart.Series.Add(series1);
             this.SessionTrendsChart.Size = new System.Drawing.Size(1080, 450);
             this.SessionTrendsChart.TabIndex = 0;
             this.SessionTrendsChart.Text = "Session Trends";
-            title3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
-            title3.Name = "ChartTitle";
-            title3.Text = "Study Trends";
-            this.SessionTrendsChart.Titles.Add(title3);
+            title1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F);
+            title1.Name = "ChartTitle";
+            title1.Text = "Study Trends";
+            this.SessionTrendsChart.Titles.Add(title1);
             // 
             // StudySessionOverlayPanel
             // 
