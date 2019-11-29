@@ -201,7 +201,8 @@ namespace HomeworkTracker
                 while ((line = sr.ReadLine()) != null)
                 {
                     info = line.Split(',');
-                    if (info[0] != this.assignmentName)
+                    //If assignment is not the one in question, keep it. The one not wanted will be left out.
+                    if (info[0] != this.assignmentName || info[1] != this.course || info[3] != this.pointValue.ToString() || info[5] != this.dueDate.ToString())
                     {
                         sw.WriteLine(line);
                     }

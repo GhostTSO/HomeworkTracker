@@ -181,7 +181,7 @@ namespace HomeworkTracker
                 while ((line = sr.ReadLine()) != null)
                 {
                     info = line.Split(',');
-                    if (info[0] != this.courseName)
+                    if (info[0] != this.courseName || info[1] != this.courseID)
                     {
                         sw.WriteLine(line);
                     }
