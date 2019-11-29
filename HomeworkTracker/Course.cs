@@ -135,6 +135,7 @@ namespace HomeworkTracker
         //************************************* We should settle on one if the other isnt used ***********// 
         public void removeAssignmentAt(int index)
         {
+            assignments[index].deleteAssignment();
             this.assignments.RemoveAt(index);
         }
 
@@ -170,26 +171,25 @@ namespace HomeworkTracker
         //NOT POINTING TO CORRECT FILE PATHS YET.
         public void deleteCourse()
         {
-            string coursesLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt";
+            string courseLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/course_backUp.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
-
-            resetSaveInfo();
-
-            using (var sr = new StreamReader(coursesLocation))
+            using (var sr = new StreamReader(courseLocation))
             using (var sw = new StreamWriter(tempFile))
             {
                 string line;
+                string [] info;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (line != this.saveString)
+                    info = line.Split(',');
+                    if (info[0] != this.courseName)
+                    {
                         sw.WriteLine(line);
+                    }
                 }
             }
-            //Removes content in Score Location
-            File.Delete(coursesLocation);
-            //Transfers temp content into Score Location
-            File.Copy(tempFile, coursesLocation);
-            //Removes content in tempFile
+
+            File.Delete(courseLocation);
+            File.Move(tempFile, courseLocation);
             File.WriteAllText(tempFile, string.Empty);
         }
 

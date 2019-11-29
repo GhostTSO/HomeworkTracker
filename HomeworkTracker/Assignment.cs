@@ -188,26 +188,23 @@ namespace HomeworkTracker
             }
         }
 
-        //NEEDS TO BE TESTED
+        //Tests to make sure that assignments are removed from data base when user wants to delete an assignment.
         public void deleteAssignment()
         {
             string assignmentsLocation = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/assignment_backUp.txt";
             string tempFile = AppDomain.CurrentDomain.BaseDirectory + @"textFileBackups/tempFile.txt";
-
-            //For this to be correct with the database, we consistently need to update the DB as we make changes.
-            //Might want to to make the update function a private function, and place it into each setter.
-            this.saveString = String.Format("{0},{1},{2},{3},{4},{5},{6},{7}",
-                this.assignmentName, this.course, this.description, this.pointValue,
-                this.priority, this.dueDate, this.timeLeft, this.completed);
-
             using (var sr = new StreamReader(assignmentsLocation))
             using (var sw = new StreamWriter(tempFile))
             {
                 string line;
+                string [] info;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (line != this.saveString)
+                    info = line.Split(',');
+                    if (info[0] != this.assignmentName)
+                    {
                         sw.WriteLine(line);
+                    }
                 }
             }
 

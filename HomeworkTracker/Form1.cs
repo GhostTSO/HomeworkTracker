@@ -265,10 +265,12 @@ namespace HomeworkTracker
             //if true then we are deleteing an assignment, else we are deleting a course
             if (this.DeleteAssignmentDropDown.Visible)
             {
+
                 courses.ElementAt(this.DeleteCourseDropDown.SelectedIndex).removeAssignmentAt(this.DeleteAssignmentDropDown.SelectedIndex);
             }
             else
             {
+                courses[this.DeleteCourseDropDown.SelectedIndex].deleteCourse();
                 courses.RemoveAt(this.DeleteCourseDropDown.SelectedIndex);
             }
 
