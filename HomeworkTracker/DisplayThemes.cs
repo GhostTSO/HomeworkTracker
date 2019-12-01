@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace HomeworkTracker
 {
-    class DisplayThemes
+    public class DisplayThemes
     {
 
         private Button[,] themes { get; set; } = new Button[4, 4];

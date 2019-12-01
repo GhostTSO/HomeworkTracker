@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HomeworkTracker
 {
-    class Notifications
+    public class Notifications
     {
-
         private Boolean enabledNotifications;
 
         public Notifications()

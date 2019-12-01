@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeworkTracker
 {
-    class Assignment
+    public class Assignment
     {
         private string assignmentName;
         private string course;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeworkTracker
 {
-    class Sorts
+    public class Sorts
     {
         public Sorts()
         {

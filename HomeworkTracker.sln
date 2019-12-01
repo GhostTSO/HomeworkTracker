@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkTracker", "HomeworkTracker\HomeworkTracker.csproj", "{B02C96DB-F102-4902-9B50-D27E751221DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkTrackerTests", "HomeworkTrackerTests\HomeworkTrackerTests.csproj", "{F6955B4B-5D6F-4EF0-8E0D-B2A7B56EAD5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B02C96DB-F102-4902-9B50-D27E751221DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B02C96DB-F102-4902-9B50-D27E751221DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B02C96DB-F102-4902-9B50-D27E751221DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6955B4B-5D6F-4EF0-8E0D-B2A7B56EAD5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6955B4B-5D6F-4EF0-8E0D-B2A7B56EAD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6955B4B-5D6F-4EF0-8E0D-B2A7B56EAD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6955B4B-5D6F-4EF0-8E0D-B2A7B56EAD5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

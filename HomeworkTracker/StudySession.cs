@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeworkTracker
 {
-    class StudySession
+    public class StudySession
     {
         //variables
         private string sessionName;

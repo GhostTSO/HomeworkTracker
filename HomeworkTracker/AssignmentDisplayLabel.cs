@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace HomeworkTracker
 {
     /** This class creates the labels and clickable button for assignments to be displayed onto the UI **/
-    class AssignmentDisplayLabel
+    public class AssignmentDisplayLabel
     {
         private Label assignmentNameLabel { get; set; } = new Label();
         private Label courseNameLabel { get; set; } = new Label();

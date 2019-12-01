@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HomeworkTracker
 {
-    class Course
+    public class Course
     {
         private string courseName;
         private Color colorID;
